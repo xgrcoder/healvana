@@ -28,12 +28,36 @@ export default function Layout({ children }: { children: ReactNode }) {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  const navLinks = [
+    { href: '/',          label: 'Home'          },
+    { href: '/shop',      label: 'Shop'          },
+    { href: '/problems',  label: 'Problems'      },
+    { href: '/about',     label: 'About'         },
+    { href: '/blog',      label: 'Journal'       },
+    { href: '/faq',       label: 'FAQ'           },
+  ]
+
+  const mobileLinks = [
+    { href: '/',               label: 'Home'                    },
+    { href: '/shop',           label: '🛍️ Shop All Products'    },
+    { href: '/problems',       label: '⚠️ Find Your Solution'   },
+    { href: '/natural-oils',   label: '🌿 Natural Oils'         },
+    { href: '/natural-salts',  label: '💎 Natural Salts'        },
+    { href: '/dopamine-detox', label: '🧠 Mind Reset'           },
+    { href: '/about',          label: '🌍 About Healvana'       },
+    { href: '/blog',           label: '📖 Journal'              },
+    { href: '/faq',            label: 'FAQ'                     },
+  ]
+
   return (
     <html lang="en">
       <head>
         <title>Healvana — Natural Wellness, Rooted in Nature</title>
         <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, and mineral protocols rooted in nature." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title"       content="Healvana — Natural Wellness" />
+        <meta property="og:description" content="Premium digital guides for natural wellness rooted in nature." />
+        <meta property="og:image"       content="/logo.png" />
       </head>
       <body>
         <div className="site-wrapper bg-grain">
@@ -41,7 +65,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           {/* ── NAV ── */}
           <header className="nav" style={{
             boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-            transition: 'box-shadow 0.3s'
+            transition: 'box-shadow 0.3s',
           }}>
             <div className="nav-inner">
 
@@ -52,12 +76,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 
               {/* Desktop links */}
               <nav className="nav-links">
-                <Link href="/">Home</Link>
-                <Link href="/shop">Shop</Link>
-                <Link href="/natural-oils">Natural Oils</Link>
-                <Link href="/natural-salts">Natural Salts</Link>
-                <Link href="/dopamine-detox">Mind Reset</Link>
-                <Link href="/faq">FAQ</Link>
+                {navLinks.map(({ href, label }) => (
+                  <Link key={href} href={href}>{label}</Link>
+                ))}
               </nav>
 
               <div className="nav-right">
@@ -78,19 +99,10 @@ export default function Layout({ children }: { children: ReactNode }) {
               </button>
             </div>
 
-            {/* Mobile menu overlay */}
+            {/* Mobile menu */}
             <div className={`nav-mobile-menu ${menuOpen ? 'open' : ''}`}>
-              {[
-                { href: '/',                label: 'Home' },
-                { href: '/shop',            label: '🛍️ Shop All Products' },
-                { href: '/natural-oils',    label: '🌿 Natural Oils' },
-                { href: '/natural-salts',   label: '💎 Natural Salts' },
-                { href: '/dopamine-detox',  label: '🧠 Mind Reset' },
-                { href: '/faq',             label: 'FAQ' },
-              ].map(({ href, label }) => (
-                <Link key={href} href={href} onClick={() => setMenuOpen(false)}>
-                  {label}
-                </Link>
+              {mobileLinks.map(({ href, label }) => (
+                <Link key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
               ))}
               <Link
                 href="/shop"
@@ -107,18 +119,16 @@ export default function Layout({ children }: { children: ReactNode }) {
 
           {/* ── FOOTER ── */}
           <footer className="footer">
-            <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.4 }} />
-            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80,  opacity: 0.3 }} />
+            <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.35 }} />
+            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80,  opacity: 0.3  }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                gap: '2.5rem',
-                marginBottom: '1rem',
+                gap: '2.5rem', marginBottom: '1rem',
               }}>
-
-                {/* Brand col */}
+                {/* Brand */}
                 <div style={{ gridColumn: 'span 2' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1rem' }}>
                     <img src="/logo.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
@@ -132,7 +142,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                       <span key={t} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{t}</span>
                     ))}
                   </div>
-                  <div style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                  <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                     {['🔒 Secure Checkout', '⚡ Instant Delivery', '↩️ 30-Day Guarantee'].map(b => (
                       <span key={b} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>{b}</span>
                     ))}
@@ -149,9 +159,10 @@ export default function Layout({ children }: { children: ReactNode }) {
 
                 <div>
                   <h5>Explore</h5>
-                  <Link href="/#about">Our Philosophy</Link>
+                  <Link href="/problems">Find Your Solution</Link>
+                  <Link href="/about">About Healvana</Link>
+                  <Link href="/blog">Journal</Link>
                   <Link href="/faq">FAQ</Link>
-                  <Link href="/shop">Shop</Link>
                 </div>
 
                 <div>

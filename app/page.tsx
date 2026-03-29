@@ -8,60 +8,63 @@ import BuyButton from './components/BuyButton'
 export default function Home() {
   return (
     <>
+
       {/* ══ HERO ══ */}
       <section className="bg-mesh bg-dots" style={{
         position: 'relative', overflow: 'hidden',
-        padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem)',
-        minHeight: '90vh', display: 'flex', alignItems: 'center',
+        padding: 'clamp(5rem, 10vw, 9rem) 0 clamp(4rem, 8vw, 7rem)',
+        minHeight: '95vh', display: 'flex', alignItems: 'center',
       }}>
-        <div className="orb orb-green" style={{ width: 600, height: 600, top: -200, left: -120 }} />
-        <div className="orb orb-blue"  style={{ width: 450, height: 450, bottom: -100, right: -100 }} />
-        <div className="orb orb-gold"  style={{ width: 280, height: 280, top: '35%', right: '10%' }} />
+        <div className="orb orb-green" style={{ width: 700, height: 700, top: -250, left: -150 }} />
+        <div className="orb orb-blue"  style={{ width: 500, height: 500, bottom: -120, right: -120 }} />
+        <div className="orb orb-gold"  style={{ width: 300, height: 300, top: '30%', right: '8%' }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-          <div className="anim-up" style={{ marginBottom: '1.75rem' }}>
-            <span className="tag tag-sage" style={{ padding: '7px 18px' }}>
+
+          {/* Live badge */}
+          <div className="anim-up" style={{ marginBottom: '2rem' }}>
+            <span className="tag tag-sage" style={{ padding: '8px 20px', fontSize: '0.72rem' }}>
               <span style={{
-                width: 6, height: 6, borderRadius: '50%',
+                width: 7, height: 7, borderRadius: '50%',
                 background: 'var(--sage)', display: 'inline-block',
-                animation: 'pulse 2s ease-in-out infinite',
+                animation: 'pulse 2s ease-in-out infinite', marginRight: 4,
               }} />
-              &nbsp;3 Premium Digital Guides — Instant Download
+              3 Premium Natural Guides — Instant Digital Download
             </span>
           </div>
 
-          <h1 className="anim-up d1" style={{ marginBottom: '1.6rem', letterSpacing: '-0.02em' }}>
-            Heal Yourself.<br />
-            <span className="gradient-text" style={{ fontStyle: 'italic' }}>The Way Nature Intended.</span>
+          <h1 className="anim-up d1" style={{ marginBottom: '1.8rem', letterSpacing: '-0.02em', maxWidth: '900px', margin: '0 auto 1.8rem' }}>
+            Your Body Already Knows<br />
+            <span className="gradient-text" style={{ fontStyle: 'italic' }}>How to Heal Itself.</span>
           </h1>
 
-          <p className="lead anim-up d2" style={{ maxWidth: '560px', margin: '0 auto 2.8rem' }}>
-            Healvana is a knowledge-first wellness platform. Premium digital guides teaching you to use nature — oils, salts, herbs, and mindset — to restore your body and mind without shortcuts.
+          <p className="lead anim-up d2" style={{ maxWidth: '580px', margin: '0 auto 3rem' }}>
+            Healvana is a knowledge-first natural wellness platform. We document the oils, salts, herbs, and mental protocols that humans have used to heal for thousands of years — before synthetic solutions existed.
           </p>
 
-          <div className="anim-up d3" style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '3rem' }}>
-            <Link href="/shop" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '0.95rem' }}>
+          <div className="anim-up d3" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
+            <Link href="/shop" className="btn btn-primary" style={{ padding: '16px 40px', fontSize: '1rem' }}>
               View All Products →
             </Link>
-            <Link href="/#about" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '0.95rem' }}>
-              Our Philosophy
+            <Link href="/problems" className="btn btn-outline" style={{ padding: '16px 32px', fontSize: '1rem' }}>
+              Find Your Solution
             </Link>
           </div>
 
-          <div className="anim-in d4" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            {['🔒 Secure Checkout', '⚡ Instant Download', '↩️ 30-Day Guarantee', '🌿 100% Natural'].map(badge => (
+          {/* Trust row */}
+          <div className="anim-in d4" style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            {['🔒 Secure Checkout', '⚡ Instant Download', '↩️ 30-Day Guarantee', '🌿 100% Natural', '🌍 Worldwide Access'].map(badge => (
               <div key={badge} style={{
-                display: 'flex', alignItems: 'center', gap: '8px',
-                background: 'rgba(255,255,255,0.72)',
+                display: 'flex', alignItems: 'center', gap: '7px',
+                background: 'rgba(255,255,255,0.75)',
                 border: '1px solid rgba(168,224,188,0.5)',
-                borderRadius: 'var(--radius-pill)', padding: '8px 16px',
+                borderRadius: 'var(--radius-pill)', padding: '7px 15px',
                 backdropFilter: 'blur(12px)',
-                fontSize: '0.82rem', fontWeight: 600, color: 'var(--forest)',
-              }}>
-                {badge}
-              </div>
+                fontSize: '0.8rem', fontWeight: 600, color: 'var(--forest)',
+              }}>{badge}</div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -71,24 +74,25 @@ export default function Home() {
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{
-          position: 'absolute', inset: 0, opacity: 0.06,
+          position: 'absolute', inset: 0, opacity: 0.05,
           backgroundImage: 'radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '24px 24px', pointerEvents: 'none',
+          backgroundSize: '22px 22px', pointerEvents: 'none',
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="stat-row" style={{
-            justifyContent: 'center',
-            padding: 'clamp(1.5rem, 3vw, 3rem) 0',
-            gap: 'clamp(1.5rem, 4vw, 3rem)',
+          <div style={{
+            display: 'flex', justifyContent: 'center',
+            padding: 'clamp(1.5rem, 3vw, 2.5rem) 0',
+            gap: 'clamp(1.5rem, 5vw, 4rem)', flexWrap: 'wrap',
           }}>
             {[
-              { value: '3',      label: 'Premium Guides' },
-              { value: '£7.99',  label: 'Starting From' },
-              { value: '100%',   label: 'Natural Methods' },
-              { value: '30-Day', label: 'Money Back' },
+              { value: '3',      label: 'Premium Guides'    },
+              { value: '9+',     label: 'Problems Solved'   },
+              { value: '£7.99',  label: 'Starting From'     },
+              { value: '30-Day', label: 'Money Back'        },
+              { value: '100%',   label: 'Natural'           },
             ].map(({ value, label }) => (
               <div key={label} className="stat-item">
-                <span className="stat-value" style={{ color: 'white', fontSize: 'clamp(1.5rem, 4vw, 2.6rem)' }}>{value}</span>
+                <span className="stat-value" style={{ color: 'white', fontSize: 'clamp(1.4rem, 3.5vw, 2.4rem)' }}>{value}</span>
                 <span className="stat-label" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</span>
               </div>
             ))}
@@ -96,18 +100,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ PRODUCTS ══ */}
-      <section id="products" className="section" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
-        <div className="orb orb-green" style={{ width: 400, height: 400, top: -100, right: -80, opacity: 0.4 }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      {/* ══ PROBLEMS TEASER ══ */}
+      <section className="section-sm" style={{ background: 'var(--ivory)', borderBottom: '1px solid var(--border-warm)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <div className="gold-rule" style={{ justifyContent: 'center' }}>
+              <p className="eyebrow">Do You Suffer From</p>
+            </div>
+            <h2>Nature Has Already<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Solved These</em></h2>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginBottom: '2rem' }}>
+            {[
+              { icon: '💇', label: 'Hair Loss'           },
+              { icon: '😴', label: 'Chronic Fatigue'     },
+              { icon: '🧠', label: 'Brain Fog'           },
+              { icon: '🌙', label: 'Poor Sleep'          },
+              { icon: '🌸', label: 'Skin Problems'       },
+              { icon: '⚡', label: 'Stress & Anxiety'    },
+              { icon: '🌿', label: 'Digestive Issues'    },
+              { icon: '🦴', label: 'Joint Pain'          },
+              { icon: '📱', label: 'Phone Addiction'     },
+            ].map(({ icon, label }) => (
+              <Link key={label} href="/problems" style={{ textDecoration: 'none' }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '8px',
+                  background: 'white', border: '1px solid rgba(168,224,188,0.5)',
+                  borderRadius: 'var(--radius-pill)', padding: '10px 18px',
+                  fontSize: '0.85rem', fontWeight: 600, color: 'var(--forest)',
+                  boxShadow: 'var(--shadow-sm)', transition: 'all 0.2s',
+                  cursor: 'pointer',
+                }}>
+                  <span>{icon}</span>{label}
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/problems" className="btn btn-outline" style={{ padding: '12px 28px' }}>
+              See All Solutions →
+            </Link>
+          </div>
+        </div>
+      </section>
 
+      {/* ══ PRODUCTS ══ */}
+      <section id="products" className="section bg-sage-mesh" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="orb orb-green" style={{ width: 400, height: 400, top: -80, right: -80, opacity: 0.35 }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div className="gold-rule" style={{ justifyContent: 'center' }}>
               <p className="eyebrow">Digital Products</p>
             </div>
             <h2>Three Guides.<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Total Transformation.</em></h2>
-            <p style={{ color: 'var(--muted)', maxWidth: '480px', margin: '1rem auto 0', fontSize: '0.95rem' }}>
-              Instant download. Read on any device. Start tonight.
+            <p style={{ color: 'var(--muted)', maxWidth: '460px', margin: '1rem auto 0', fontSize: '0.92rem' }}>
+              Instant download. Read on any device. Start applying tonight.
             </p>
           </div>
 
@@ -118,7 +164,8 @@ export default function Home() {
                 icon: '🧠',
                 gradient: 'linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4060 100%)',
                 label: 'System 01', name: '7-Day Dopamine Reset', price: '£9.99',
-                desc: 'Eliminate digital overload, restore your natural baseline, and rebuild real focus in 7 days.',
+                badge: 'Most Popular',
+                desc: 'Eliminate digital overload, restore your natural baseline, and rebuild real focus in just 7 days.',
                 href: '/dopamine-detox',
               },
               {
@@ -126,7 +173,8 @@ export default function Home() {
                 icon: '🌿',
                 gradient: 'linear-gradient(135deg, #1a4a2e 0%, var(--sage) 100%)',
                 label: 'System 02', name: 'Natural Oils Bible', price: '£7.99',
-                desc: '50+ oils. Full healing properties, application protocols, and dosage guides.',
+                badge: '50+ Oils',
+                desc: 'Every major healing oil — properties, application methods, and the conditions each one treats.',
                 href: '/natural-oils',
               },
               {
@@ -134,16 +182,22 @@ export default function Home() {
                 icon: '💎',
                 gradient: 'linear-gradient(135deg, var(--ocean) 0%, #2d5a8a 60%, #1a3a6a 100%)',
                 label: 'System 03', name: 'Natural Salts & Minerals', price: '£7.99',
-                desc: "Ancient minerals and salts that restore your body's cellular balance from the inside out.",
+                badge: '20+ Minerals',
+                desc: "Ancient earth minerals that restore your body's cellular balance from the inside out.",
                 href: '/natural-salts',
               },
-            ].map(({ id, icon, gradient, label, name, price, desc, href }) => (
-              <div key={id} className="product-card">
+            ].map(({ id, icon, gradient, label, name, price, badge, desc, href }) => (
+              <div key={id} className="product-card" style={{ position: 'relative' }}>
+                {/* Badge */}
+                <div style={{
+                  position: 'absolute', top: '1rem', right: '1rem', zIndex: 2,
+                  background: 'var(--gold)', color: 'white',
+                  borderRadius: 'var(--radius-pill)', padding: '4px 12px',
+                  fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+                }}>{badge}</div>
                 <div className="product-card-img" style={{ background: gradient, position: 'relative', overflow: 'hidden' }}>
                   <div className="orb orb-gold" style={{ width: 180, height: 180, top: -40, right: -40 }} />
-                  <span style={{ fontSize: 'clamp(3rem, 7vw, 4rem)', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.3))', zIndex: 1, position: 'relative' }}>
-                    {icon}
-                  </span>
+                  <span style={{ fontSize: 'clamp(3rem, 7vw, 4rem)', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.3))', zIndex: 1, position: 'relative' }}>{icon}</span>
                 </div>
                 <div className="product-card-body">
                   <span className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>{label}</span>
@@ -153,33 +207,31 @@ export default function Home() {
                     <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--forest)', fontWeight: 500 }}>{price}</span>
                     <BuyButton productId={id} label="Buy Now →" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.82rem' }} />
                   </div>
-                  <Link href={href} style={{ fontSize: '0.78rem', color: 'var(--sage)', fontWeight: 600 }}>
-                    Learn more →
-                  </Link>
+                  <Link href={href} style={{ fontSize: '0.78rem', color: 'var(--sage)', fontWeight: 600 }}>Learn more →</Link>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Bundle banner */}
+          {/* Bundle */}
           <div style={{
             background: 'linear-gradient(135deg, var(--forest), var(--ocean))',
-            borderRadius: 'var(--radius-xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+            borderRadius: 'var(--radius-xl)', padding: 'clamp(1.5rem, 4vw, 2.5rem)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             gap: '2rem', flexWrap: 'wrap', position: 'relative', overflow: 'hidden',
           }}>
             <div className="orb orb-gold" style={{ width: 300, height: 300, top: -80, right: -60 }} />
             <div style={{ position: 'relative', zIndex: 1 }}>
               <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.62rem' }}>🔥 Best Value</span>
-                <span className="tag tag-dark" style={{ fontSize: '0.62rem' }}>Save £6</span>
+                <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.62rem' }}>🔥 Best Value — Save £6</span>
               </div>
               <h3 style={{ color: 'white', marginBottom: '0.4rem' }}>Get All 3 Guides — Complete Bundle</h3>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem' }}>Everything Healvana offers in one purchase. 🧠 + 🌿 + 💎</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem' }}>
+                Every Healvana solution in one purchase. 🧠 + 🌿 + 💎
+              </p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexShrink: 0, position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
-              <div style={{ textAlign: 'center' }}>
+              <div>
                 <span style={{ display: 'block', color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', textDecoration: 'line-through' }}>£25.97</span>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'white' }}>£19.99</span>
               </div>
@@ -190,25 +242,24 @@ export default function Home() {
       </section>
 
       {/* ══ TESTIMONIALS ══ */}
-      <section className="section-sm bg-sage-mesh" style={{ borderTop: '1px solid var(--border)' }}>
-        <div className="container">
+      <section className="section-sm" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
+        <div className="orb orb-blue" style={{ width: 350, height: 350, bottom: -80, right: -80, opacity: 0.35 }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="eyebrow" style={{ marginBottom: '0.6rem' }}>Customer Reviews</p>
             <h2>Trusted by Those<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Choosing Nature</em></h2>
           </div>
           <div className="grid-3">
             {[
-              { name: 'James T.', loc: 'London', stars: 5, text: 'By day 3 of the dopamine reset I could sit and read for an hour without touching my phone. This guide is the real deal.', product: '7-Day Reset' },
-              { name: 'Sarah M.', loc: 'Manchester', stars: 5, text: 'The Natural Oils guide changed my skincare completely. Rosehip oil alone transformed my skin in under a month.', product: 'Natural Oils' },
-              { name: 'Daniel R.', loc: 'Edinburgh', stars: 5, text: 'Bought the bundle. The mineral guide alone changed my sleep — Epsom salt baths before bed are now non-negotiable.', product: 'Full Bundle' },
+              { name: 'James T.',  loc: 'London',     stars: 5, text: 'By day 3 of the dopamine reset I could sit and read for an hour without touching my phone. This guide is the real deal.',         product: '7-Day Reset'   },
+              { name: 'Sarah M.',  loc: 'Manchester',  stars: 5, text: 'The Natural Oils guide changed my skincare completely. Rosehip oil alone transformed my skin in under a month.',               product: 'Natural Oils'  },
+              { name: 'Daniel R.', loc: 'Edinburgh',   stars: 5, text: 'Bought the bundle. The mineral guide alone changed my sleep — Epsom salt baths before bed are now non-negotiable.',           product: 'Full Bundle'   },
             ].map(({ name, loc, stars, text, product }) => (
               <div key={name} className="card" style={{ background: 'white' }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: '1rem' }}>
-                  {Array.from({ length: stars }).map((_, i) => (
-                    <span key={i} style={{ color: 'var(--gold)' }}>★</span>
-                  ))}
+                  {Array.from({ length: stars }).map((_, i) => <span key={i} style={{ color: 'var(--gold)', fontSize: '1.1rem' }}>★</span>)}
                 </div>
-                <p style={{ color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.7, fontStyle: 'italic', marginBottom: '1.2rem' }}>
+                <p style={{ color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '1.2rem' }}>
                   &ldquo;{text}&rdquo;
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -222,8 +273,8 @@ export default function Home() {
       </section>
 
       {/* ══ PHILOSOPHY ══ */}
-      <section id="about" className="section" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
-        <div className="orb orb-blue" style={{ width: 450, height: 450, top: -100, right: -120, opacity: 0.5 }} />
+      <section id="about" className="section" style={{ background: 'var(--ivory)', position: 'relative', overflow: 'hidden' }}>
+        <div className="orb orb-green" style={{ width: 450, height: 450, top: -100, left: -120, opacity: 0.5 }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             display: 'grid',
@@ -233,18 +284,20 @@ export default function Home() {
             <div>
               <div className="gold-rule"><p className="eyebrow">Our Philosophy</p></div>
               <h2 style={{ marginBottom: '1.5rem' }}>
-                Nature Has the<br />
-                <em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Answer to Everything.</em>
+                The Answer Has<br />
+                <em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Always Been in Nature.</em>
               </h2>
               <p className="lead" style={{ marginBottom: '1.5rem' }}>
-                Before pharmaceutical labs and synthetic supplements, humans thrived using what the earth provided. Healvana brings that knowledge back.
+                Before pharmaceutical labs, before synthetic supplements, before the wellness industry — humans thrived using what the earth provided.
               </p>
-              <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: '2rem', fontSize: '0.95rem' }}>
-                We cover the full spectrum: dopamine regulation, natural oils, ancient salts, herbal protocols, movement practices, and mental discipline — all grounded in science, all found in nature.
+              <p style={{ color: 'var(--muted)', lineHeight: 1.85, marginBottom: '2rem', fontSize: '0.95rem' }}>
+                Healvana exists to bring that knowledge back. Every guide is built on ancient wisdom validated by modern research — practical, natural, and designed to be applied immediately.
               </p>
-              <Link href="/shop" className="btn btn-primary">Shop All Guides →</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link href="/about" className="btn btn-primary">Our Story →</Link>
+                <Link href="/shop" className="btn btn-outline">Shop Guides</Link>
+              </div>
             </div>
-
             <div style={{
               background: 'linear-gradient(145deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4a6a 100%)',
               borderRadius: 'var(--radius-xl)', padding: 'clamp(2rem, 4vw, 3rem)',
@@ -255,12 +308,10 @@ export default function Home() {
                 { icon: '🌿', title: 'Botanical Knowledge', desc: 'Oils, herbs, salts — how nature heals at the cellular level.' },
                 { icon: '🧠', title: 'Mental Rewiring',      desc: 'Dopamine detox, focus building, and discipline protocols.' },
                 { icon: '💧', title: 'Ocean Minerals',       desc: 'Ancient salts and trace minerals your body was designed to use.' },
-                { icon: '✦',  title: 'Spiritual Grounding',  desc: 'Ancient wisdom for modern overwhelm and disconnection.' },
+                { icon: '✦',  title: 'Timeless Wisdom',     desc: 'Ancient practices validated by modern science.' },
               ].map(({ icon, title, desc }) => (
                 <div key={title} style={{ display: 'flex', gap: '1rem', marginBottom: '1.4rem', position: 'relative', zIndex: 1 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>
-                    {icon}
-                  </div>
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', flexShrink: 0 }}>{icon}</div>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'white', marginBottom: 3 }}>{title}</div>
                     <div style={{ fontSize: '0.81rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>{desc}</div>
@@ -273,29 +324,29 @@ export default function Home() {
       </section>
 
       {/* ══ FINAL CTA ══ */}
-      <section className="section-sm" style={{ background: 'var(--ivory)', borderTop: '1px solid var(--border-warm)' }}>
+      <section className="section-sm" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
         <div className="container-xs">
           <div style={{
             background: 'linear-gradient(145deg, var(--forest) 0%, var(--forest-mid) 50%, var(--ocean) 100%)',
             borderRadius: 'var(--radius-xl)',
-            padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem)',
+            padding: 'clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem)',
             textAlign: 'center', color: 'white', position: 'relative', overflow: 'hidden',
           }}>
-            <div className="orb orb-gold"  style={{ width: 300, height: 300, top: -80,  right: -80 }} />
-            <div className="orb orb-green" style={{ width: 220, height: 220, bottom: -60, left: -60 }} />
-            <span className="tag tag-dark" style={{ marginBottom: '1.2rem', display: 'inline-flex', position: 'relative', zIndex: 1 }}>Start Today</span>
+            <div className="orb orb-gold"  style={{ width: 320, height: 320, top: -80,  right: -80 }} />
+            <div className="orb orb-green" style={{ width: 240, height: 240, bottom: -70, left: -70 }} />
+            <span className="tag tag-dark" style={{ marginBottom: '1.2rem', display: 'inline-flex', position: 'relative', zIndex: 1 }}>Start Tonight</span>
             <h2 style={{ color: 'white', marginBottom: '0.75rem', position: 'relative', zIndex: 1 }}>
-              Your Reset Starts<br /><em style={{ color: 'var(--gold-light)' }}>Tonight.</em>
+              Your Healing Starts<br /><em style={{ color: 'var(--gold-light)' }}>The Moment You Download.</em>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '420px', margin: '0 auto 2rem', lineHeight: 1.8, position: 'relative', zIndex: 1, fontSize: '0.9rem' }}>
-              Three premium guides. Instant access. Start applying what you learn within minutes of purchase.
+            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '440px', margin: '0 auto 2rem', lineHeight: 1.8, position: 'relative', zIndex: 1, fontSize: '0.92rem' }}>
+              Three premium guides. One purchase. Instant access. Start applying natural solutions within minutes.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-              <Link href="/shop" className="btn btn-gold" style={{ padding: '14px 36px' }}>View All Products →</Link>
-              <Link href="/faq"  className="btn btn-outline" style={{ padding: '14px 24px', color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>Read FAQ</Link>
+              <Link href="/shop" className="btn btn-gold" style={{ padding: '15px 40px', fontSize: '0.95rem' }}>View All Products →</Link>
+              <Link href="/problems" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', padding: '15px 28px' }}>Find My Solution</Link>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '0.76rem', marginTop: '1.2rem', position: 'relative', zIndex: 1 }}>
-              🔒 Secure checkout · Instant download · 30-day money back guarantee
+            <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.76rem', marginTop: '1.2rem', position: 'relative', zIndex: 1 }}>
+              🔒 Secure Stripe checkout · Instant PDF download · 30-day money back guarantee
             </p>
           </div>
         </div>
@@ -306,18 +357,19 @@ export default function Home() {
         <div className="container-sm">
           <p style={{
             fontFamily: 'var(--font-display)', fontSize: 'clamp(1.1rem, 2.5vw, 2rem)',
-            lineHeight: 1.6, color: 'var(--forest)', fontStyle: 'italic', fontWeight: 400,
-            maxWidth: '680px', margin: '0 auto',
+            lineHeight: 1.65, color: 'var(--forest)', fontStyle: 'italic', fontWeight: 400,
+            maxWidth: '700px', margin: '0 auto',
           }}>
             &ldquo;The body knows how to heal itself. It has always known. We just stopped listening to nature — and started listening to noise.&rdquo;
           </p>
           <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <div style={{ width: 28, height: 1.5, background: 'linear-gradient(90deg, transparent, var(--gold))' }} />
+            <div style={{ width: 30, height: 1.5, background: 'linear-gradient(90deg, transparent, var(--gold))' }} />
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.15em', color: 'var(--gold)', textTransform: 'uppercase', fontWeight: 700 }}>Healvana</span>
-            <div style={{ width: 28, height: 1.5, background: 'linear-gradient(90deg, var(--gold), transparent)' }} />
+            <div style={{ width: 30, height: 1.5, background: 'linear-gradient(90deg, var(--gold), transparent)' }} />
           </div>
         </div>
       </section>
+
     </>
   )
 }
