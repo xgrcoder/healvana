@@ -1,3 +1,7 @@
+// ================================================================
+// FILE LOCATION: C:\dev\healvana\app\layout.tsx
+// ================================================================
+
 'use client'
 
 import './globals.css'
@@ -6,15 +10,19 @@ import Link from 'next/link'
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  // Close menu on resize to desktop
   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
     const onResize = () => { if (window.innerWidth > 900) setMenuOpen(false) }
+    window.addEventListener('scroll', onScroll)
     window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
   }, [])
 
-  // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -24,145 +32,142 @@ export default function Layout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <title>Healvana — Natural Wellness, Rooted in Nature</title>
-        <meta name="description" content="A knowledge base for holistic health. Natural alternatives for mind, body, and spirit. Digital products rooted in nature." />
+        <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, and mineral protocols rooted in nature." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
         <div className="site-wrapper bg-grain">
 
           {/* ── NAV ── */}
-          <header className="nav">
+          <header className="nav" style={{
+            boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
+            transition: 'box-shadow 0.3s'
+          }}>
             <div className="nav-inner">
 
-              {/* LOGO */}
               <Link href="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
                 <img src="/logo.png" alt="Healvana" />
                 Healvana
               </Link>
 
-              {/* CENTRE LINKS — desktop */}
+              {/* Desktop links */}
               <nav className="nav-links">
                 <Link href="/">Home</Link>
+                <Link href="/shop">Shop</Link>
                 <Link href="/natural-oils">Natural Oils</Link>
                 <Link href="/natural-salts">Natural Salts</Link>
                 <Link href="/dopamine-detox">Mind Reset</Link>
-                <Link href="/#products">All Products</Link>
-                <Link href="/#about">About</Link>
+                <Link href="/faq">FAQ</Link>
               </nav>
 
-              {/* RIGHT — desktop CTA */}
               <div className="nav-right">
-                <Link href="/dopamine-detox" className="btn btn-primary" style={{ fontSize: '0.82rem', padding: '10px 22px' }}>
-                  Begin Reset
+                <Link href="/shop" className="btn btn-primary" style={{ fontSize: '0.82rem', padding: '10px 22px' }}>
+                  View Products
                 </Link>
               </div>
 
-              {/* HAMBURGER — mobile */}
+              {/* Hamburger */}
               <button
                 className="nav-mobile-toggle"
                 onClick={() => setMenuOpen(v => !v)}
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               >
-                <span style={{ transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
-                <span style={{ opacity: menuOpen ? 0 : 1 }} />
-                <span style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
+                <span style={{ transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none', transition: 'transform 0.3s' }} />
+                <span style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.3s' }} />
+                <span style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none', transition: 'transform 0.3s' }} />
               </button>
-
             </div>
 
-            {/* MOBILE MENU */}
+            {/* Mobile menu overlay */}
             <div className={`nav-mobile-menu ${menuOpen ? 'open' : ''}`}>
               {[
-                { href: '/', label: 'Home' },
-                { href: '/natural-oils', label: 'Natural Oils' },
-                { href: '/natural-salts', label: 'Natural Salts' },
-                { href: '/dopamine-detox', label: 'Mind Reset' },
-                { href: '/#products', label: 'All Products' },
-                { href: '/#about', label: 'About' },
+                { href: '/',                label: 'Home' },
+                { href: '/shop',            label: '🛍️ Shop All Products' },
+                { href: '/natural-oils',    label: '🌿 Natural Oils' },
+                { href: '/natural-salts',   label: '💎 Natural Salts' },
+                { href: '/dopamine-detox',  label: '🧠 Mind Reset' },
+                { href: '/faq',             label: 'FAQ' },
               ].map(({ href, label }) => (
-                <Link key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
+                <Link key={href} href={href} onClick={() => setMenuOpen(false)}>
+                  {label}
+                </Link>
               ))}
               <Link
-                href="/dopamine-detox"
+                href="/shop"
                 className="btn btn-primary"
                 style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}
                 onClick={() => setMenuOpen(false)}
               >
-                Begin Reset →
+                View Products →
               </Link>
             </div>
           </header>
 
-          {/* ── CONTENT ── */}
           <main>{children}</main>
 
           {/* ── FOOTER ── */}
           <footer className="footer">
-            {/* Background orbs */}
-            <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.5 }} />
-            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80, opacity: 0.4 }} />
+            <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.4 }} />
+            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80,  opacity: 0.3 }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-              <div className="footer-grid" style={{
+              <div style={{
                 display: 'grid',
-                gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
-                gap: '3rem', marginBottom: '1rem'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                gap: '2.5rem',
+                marginBottom: '1rem',
               }}>
 
-                <div>
+                {/* Brand col */}
+                <div style={{ gridColumn: 'span 2' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1rem' }}>
-                    <img src="/logo.png" alt="" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                    <img src="/logo.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
                     <div className="footer-logo-text">Healvana</div>
                   </div>
-                  <p style={{ fontSize: '0.88rem', maxWidth: '260px', lineHeight: '1.75', color: 'rgba(255,255,255,0.55)' }}>
-                    A knowledge base for those who choose to heal, build, and live through nature. No shortcuts. No chemicals.
+                  <p style={{ fontSize: '0.87rem', maxWidth: '250px', lineHeight: 1.75, color: 'rgba(255,255,255,0.5)' }}>
+                    Heal through nature. No shortcuts. No chemicals. Just the earth.
                   </p>
-                  <div style={{ display: 'flex', gap: '10px', marginTop: '1.5rem' }}>
+                  <div style={{ display: 'flex', gap: '8px', marginTop: '1.25rem', flexWrap: 'wrap' }}>
                     {['Mind', 'Body', 'Spirit'].map(t => (
                       <span key={t} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                    {['🔒 Secure Checkout', '⚡ Instant Delivery', '↩️ 30-Day Guarantee'].map(b => (
+                      <span key={b} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>{b}</span>
                     ))}
                   </div>
                 </div>
 
                 <div>
                   <h5>Products</h5>
-                  <Link href="/dopamine-detox">7-Day Reset</Link>
-                  <Link href="/natural-oils">Natural Oils Guide</Link>
-                  <Link href="/natural-salts">Natural Salts Guide</Link>
-                  <Link href="/#products">All Products</Link>
+                  <Link href="/shop">All Products</Link>
+                  <Link href="/dopamine-detox">7-Day Reset — £9.99</Link>
+                  <Link href="/natural-oils">Natural Oils — £7.99</Link>
+                  <Link href="/natural-salts">Natural Salts — £7.99</Link>
                 </div>
 
                 <div>
-                  <h5>Systems</h5>
-                  <Link href="/dopamine-detox">Dopamine Reset</Link>
-                  <Link href="#">Physical Alignment</Link>
-                  <Link href="#">Sleep Protocol</Link>
-                  <Link href="#">Nutrition Reset</Link>
+                  <h5>Explore</h5>
+                  <Link href="/#about">Our Philosophy</Link>
+                  <Link href="/faq">FAQ</Link>
+                  <Link href="/shop">Shop</Link>
                 </div>
 
                 <div>
-                  <h5>Nature</h5>
-                  <Link href="/natural-oils">Oils & Extracts</Link>
-                  <Link href="/natural-salts">Salts & Minerals</Link>
-                  <Link href="#">Herbs & Botanicals</Link>
-                  <Link href="#">Water & Fasting</Link>
+                  <h5>Legal</h5>
+                  <Link href="#">Privacy Policy</Link>
+                  <Link href="#">Terms of Use</Link>
+                  <Link href="#">Refund Policy</Link>
+                  <Link href="#">Contact Us</Link>
                 </div>
-
-                <div>
-                  <h5>Company</h5>
-                  <Link href="/#about">About</Link>
-                  <Link href="#">Method</Link>
-                  <Link href="#">Privacy</Link>
-                  <Link href="#">Terms</Link>
-                </div>
-
               </div>
 
-              <hr className="divider-gradient" />
+              <hr className="divider-gradient" style={{ margin: '2rem 0 1.5rem' }} />
 
               <div className="footer-bar">
                 <span>© {new Date().getFullYear()} Healvana. All rights reserved.</span>
-                <span>Built on nature. Grounded in truth.</span>
+                <span>Powered by Stripe 🔒</span>
               </div>
             </div>
           </footer>
