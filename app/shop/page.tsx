@@ -13,16 +13,10 @@ const PRODUCTS = [
     tagStyle: { background: 'var(--sage-light)', color: 'var(--forest)' },
     name: '7-Day Dopamine Reset Protocol',
     desc: 'A structured, day-by-day system to eliminate digital overload, restore your natural dopamine baseline, and rebuild the ability to focus without stimulation.',
-    price: '£9.99',
+    price: '£29.99',
     gradient: 'linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4060 100%)',
     href: '/dopamine-detox',
-    includes: [
-      '7-day daily protocol',
-      'Focus rebuilding system',
-      'Habit tracking framework',
-      'Digital detox blueprint',
-      'Natural support protocols',
-    ],
+    includes: ['7-day daily protocol', 'Focus rebuilding system', 'Habit tracking framework', 'Digital detox blueprint', 'Natural support protocols'],
   },
   {
     id: 'natural-oils',
@@ -31,16 +25,10 @@ const PRODUCTS = [
     tagStyle: { background: 'var(--sage-light)', color: 'var(--forest)' },
     name: 'Natural Oils Bible',
     desc: '50+ natural oils fully documented — their healing properties, application methods, dosage guides, and the conditions they treat. Pure botanical knowledge.',
-    price: '£7.99',
+    price: '£27.99',
     gradient: 'linear-gradient(135deg, #1a4a2e 0%, var(--sage) 100%)',
     href: '/natural-oils',
-    includes: [
-      '50+ oils documented',
-      'Application methods per oil',
-      'Health condition index',
-      'Blending & safety protocols',
-      'Instant digital download',
-    ],
+    includes: ['50+ oils documented', 'Application methods per oil', 'Health condition index', 'Blending & safety protocols', 'Instant digital download'],
   },
   {
     id: 'natural-salts',
@@ -49,16 +37,22 @@ const PRODUCTS = [
     tagStyle: { background: 'var(--ocean-light)', color: 'var(--ocean)' },
     name: 'Natural Salts & Minerals Bible',
     desc: 'Himalayan, Dead Sea, Epsom and beyond. Every salt your body needs with usage protocols, sourcing guides, bath rituals, and dietary integration.',
-    price: '£7.99',
+    price: '£27.99',
     gradient: 'linear-gradient(135deg, var(--ocean) 0%, #2d5a8a 60%, #1a3a6a 100%)',
     href: '/natural-salts',
-    includes: [
-      '20+ salts & minerals covered',
-      'Bath ritual protocols',
-      'Dietary switch guide',
-      'Mineral deficiency diagnosis',
-      'Sourcing & quality guide',
-    ],
+    includes: ['20+ salts & minerals covered', 'Bath ritual protocols', 'Dietary switch guide', 'Mineral deficiency diagnosis', 'Sourcing & quality guide'],
+  },
+  {
+    id: 'natural-fruits',
+    icon: '🍇',
+    tag: 'System 04 — New Release',
+    tagStyle: { background: 'var(--gold-soft)', color: 'var(--earth)' },
+    name: 'Sacred Fruits & Botanicals Bible',
+    desc: "The most powerful healing fruits on earth — schisandra, soursop, amla, sea buckthorn, camu camu and more. Nature's hidden pharmacy, fully documented.",
+    price: '£27.99',
+    gradient: 'linear-gradient(135deg, #3a1a5a 0%, #6a3a8a 60%, #4a2a7a 100%)',
+    href: '/shop',
+    includes: ['20+ sacred fruits & botanicals', 'Ancient preparation methods', 'Bioavailability guide', 'Sourcing & quality protocols', 'Instant digital download'],
   },
 ]
 
@@ -82,10 +76,11 @@ export default function ShopPage() {
             <span className="gradient-text" style={{ fontStyle: 'italic' }}>Knowledge Library</span>
           </h1>
           <p className="lead anim-up d2" style={{ maxWidth: '500px', margin: '0 auto 2rem' }}>
-            Three premium digital guides. Instant download. Everything you need to heal, focus, and restore your body through nature.
+            Four premium digital guides. Instant download. Everything you need to heal, focus, and restore your body through nature.
           </p>
+          {/* Trust badges — no 30-day guarantee */}
           <div className="anim-up d3" style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-            {['🔒 Secure Checkout', '⚡ Instant Download', '↩️ 30-Day Guarantee', '🌍 Worldwide Access'].map(b => (
+            {['🔒 Secure Checkout', '⚡ Instant Download', '🌿 100% Natural', '🌍 Worldwide Access'].map(b => (
               <span key={b} style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--muted)' }}>{b}</span>
             ))}
           </div>
@@ -107,24 +102,24 @@ export default function ShopPage() {
             <div style={{ flex: 1, minWidth: 260 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                 <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.65rem' }}>🔥 Best Value</span>
-                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', textDecoration: 'line-through' }}>£25.97</span>
-                <span className="tag tag-dark" style={{ fontSize: '0.65rem' }}>Save £6</span>
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', textDecoration: 'line-through' }}>£113.96</span>
+                <span className="tag tag-dark" style={{ fontSize: '0.65rem' }}>Save £54</span>
               </div>
               <h2 style={{ color: 'white', fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: '0.5rem' }}>Complete Healvana Bundle</h2>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                All 3 guides. Dopamine Reset + Natural Oils + Natural Salts. One price, instant access to everything.
+                All 4 guides. Every system. One price. Instant access to everything Healvana offers.
               </p>
               <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-                {['🧠 Mind Reset', '🌿 Oils Guide', '💎 Salts Guide'].map(i => (
-                  <span key={i} className="tag tag-dark" style={{ fontSize: '0.65rem' }}>{i}</span>
+                {['🧠 Mind Reset', '🌿 Oils Guide', '💎 Salts Guide', '🍇 Sacred Fruits'].map(i => (
+                  <span key={i} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{i}</span>
                 ))}
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'white', lineHeight: 1 }}>£19.99</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'white', lineHeight: 1 }}>£59.99</span>
               <BuyButton
                 productId="bundle-all"
-                label="Get All 3 Guides →"
+                label="Get All 4 Guides →"
                 className="btn btn-gold"
                 style={{ padding: '15px 32px', fontSize: '1rem', whiteSpace: 'nowrap' }}
               />
@@ -152,7 +147,7 @@ export default function ShopPage() {
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                 }}>
-                  {/* Visual side */}
+                  {/* Visual */}
                   <div style={{
                     background: gradient, position: 'relative', overflow: 'hidden',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -165,8 +160,7 @@ export default function ShopPage() {
                       <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem' }}>one-time payment</span>
                     </div>
                   </div>
-
-                  {/* Info side */}
+                  {/* Info */}
                   <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
                     <span className="tag" style={{ ...tagStyle, fontSize: '0.62rem', marginBottom: '1rem', display: 'inline-flex', padding: '5px 14px', borderRadius: 'var(--radius-pill)', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{tag}</span>
                     <h3 style={{ marginBottom: '0.75rem', fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>{name}</h3>
@@ -181,7 +175,7 @@ export default function ShopPage() {
                       <Link href={href} className="btn btn-outline" style={{ padding: '13px 22px', fontSize: '0.84rem' }}>Learn More</Link>
                     </div>
                     <p style={{ color: 'var(--subtle)', fontSize: '0.74rem', marginTop: '0.75rem' }}>
-                      🔒 Secure checkout · Instant download · 30-day money back guarantee
+                      🔒 Secure checkout · Instant download · Worldwide access
                     </p>
                   </div>
                 </div>
@@ -200,9 +194,9 @@ export default function ShopPage() {
           </div>
           <div className="grid-3">
             {[
-              { name: 'James T.',  loc: 'London',     product: '7-Day Dopamine Reset', stars: 5, quote: 'Completely changed how I use my phone. By day 3 I could sit and read for an hour without reaching for it. Worth every penny.' },
-              { name: 'Sarah M.',  loc: 'Manchester',  product: 'Natural Oils Bible',   stars: 5, quote: "I had no idea how powerful rosehip and castor oil were. My skin has completely transformed in 3 weeks. The guide is genuinely comprehensive." },
-              { name: 'Daniel R.', loc: 'Edinburgh',   product: 'Complete Bundle',      stars: 5, quote: 'Bought all three. The mineral guide alone changed my sleep — Epsom salt baths before bed are now non-negotiable. Incredible value.' },
+              { name: 'James T.',  loc: 'London',    product: '7-Day Dopamine Reset', stars: 5, quote: 'Completely changed how I use my phone. By day 3 I could sit and read for an hour without reaching for it.' },
+              { name: 'Sarah M.',  loc: 'Manchester', product: 'Natural Oils Bible',   stars: 5, quote: 'I had no idea how powerful rosehip and castor oil were. My skin has completely transformed in 3 weeks.' },
+              { name: 'Daniel R.', loc: 'Edinburgh',  product: 'Complete Bundle',      stars: 5, quote: 'Bought all four. The mineral guide alone changed my sleep. Epsom salt baths before bed are non-negotiable now.' },
             ].map(({ name, loc, product, stars, quote }) => (
               <div key={name} className="card" style={{ background: 'white' }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: '1rem' }}>
@@ -210,9 +204,7 @@ export default function ShopPage() {
                 </div>
                 <p style={{ color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '1.2rem', fontStyle: 'italic' }}>&ldquo;{quote}&rdquo;</p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--forest)' }}>{name} · {loc}</div>
-                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--forest)' }}>{name} · {loc}</div>
                   <span className="tag tag-sage" style={{ fontSize: '0.6rem' }}>{product}</span>
                 </div>
               </div>

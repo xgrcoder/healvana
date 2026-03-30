@@ -34,7 +34,7 @@ export default function DetoxPage() {
           </p>
           <div className="anim-up d3">
             <a href="#purchase" className="btn btn-primary" style={{ padding: '15px 34px' }}>
-              Start the Reset — £9.99 →
+              Start the Reset — £29.99 →
             </a>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function DetoxPage() {
             gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'start',
           }}>
 
-            {/* LEFT — Features */}
+            {/* LEFT */}
             <div>
               <div className="gold-rule"><p className="eyebrow">What&apos;s Included</p></div>
               <h2 style={{ marginBottom: '2rem' }}>Everything to<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Begin Your Reset</em></h2>
@@ -58,7 +58,7 @@ export default function DetoxPage() {
                 {[
                   { icon: '📋', title: 'Daily Structured Protocol',  desc: 'A clear, precise day-by-day schedule. No guesswork. Just execution. Each day builds on the last.' },
                   { icon: '🎯', title: 'Focus Rebuilding System',     desc: 'Progressive attention training exercises that recalibrate your nervous system back to its natural state.' },
-                  { icon: '📊', title: 'Habit Tracking Framework',    desc: 'A simple system to track your progress, monitor your wins, and lock in the new behaviours permanently.' },
+                  { icon: '📊', title: 'Habit Tracking Framework',    desc: 'A simple system to track your progress, monitor your wins, and lock in new behaviours permanently.' },
                   { icon: '📵', title: 'Digital Detox Blueprint',     desc: 'Specific, actionable rules for eliminating the exact stimuli that have been hijacking your dopamine.' },
                   { icon: '🌿', title: 'Natural Support Protocols',   desc: "Which herbs, oils, and foods support dopamine recovery — aligned with Healvana's natural philosophy." },
                 ].map(({ icon, title, desc }) => (
@@ -81,7 +81,7 @@ export default function DetoxPage() {
               </div>
             </div>
 
-            {/* RIGHT — Purchase card */}
+            {/* RIGHT — Purchase */}
             <div id="purchase" style={{ position: 'sticky', top: '100px' }}>
               <div style={{
                 background: 'linear-gradient(155deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4a6a 100%)',
@@ -100,7 +100,7 @@ export default function DetoxPage() {
                   Instant access. Begin your protocol tonight.
                 </p>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '2rem', position: 'relative', zIndex: 1 }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 6vw, 3.6rem)', fontWeight: 400, lineHeight: 1, color: 'white' }}>£9.99</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 6vw, 3.6rem)', fontWeight: 400, lineHeight: 1, color: 'white' }}>£29.99</span>
                   <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.85rem' }}>one-time</span>
                 </div>
 
@@ -115,7 +115,7 @@ export default function DetoxPage() {
                 </div>
 
                 <ul className="check-list check-list-light" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
-                  {['Instant PDF download', '30-day money back guarantee', 'Read on any device', 'Secure Stripe checkout'].map(i => (
+                  {['Instant PDF download', 'Read on any device', 'Secure Stripe checkout', 'Worldwide access'].map(i => (
                     <li key={i}><span className="check-icon" style={{ background: 'rgba(255,255,255,0.15)', color: 'white' }}>✓</span>{i}</li>
                   ))}
                 </ul>
@@ -124,9 +124,6 @@ export default function DetoxPage() {
                   🔒 Powered by Stripe · 256-bit SSL encryption
                 </p>
               </div>
-              <p style={{ textAlign: 'center', color: 'var(--subtle)', fontSize: '0.78rem', marginTop: '1rem' }}>
-                Trusted by people who chose discipline over distraction
-              </p>
             </div>
           </div>
         </div>
@@ -156,7 +153,7 @@ export default function DetoxPage() {
           </div>
           <BuyButton
             productId="dopamine-reset"
-            label="Start My Reset — £9.99 →"
+            label="Start My Reset — £29.99 →"
             className="btn btn-primary"
             style={{ padding: '15px 36px', fontSize: '0.95rem' }}
           />

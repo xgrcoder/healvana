@@ -11,22 +11,27 @@ const PRODUCTS: Record<string, { name: string; description: string; amount: numb
   'dopamine-reset': {
     name: '7-Day Dopamine Reset Protocol',
     description: 'A structured 7-day system to restore your natural dopamine baseline and reclaim deep focus.',
-    amount: 999,
+    amount: 2999, // £29.99
   },
   'natural-oils': {
     name: 'Natural Oils Bible',
     description: '50+ natural oils — healing properties, application methods, and full usage protocols.',
-    amount: 799,
+    amount: 2799, // £27.99
   },
   'natural-salts': {
     name: 'Natural Salts & Minerals Bible',
     description: '20+ salts and minerals — bath rituals, dietary guides, and mineral deficiency protocols.',
-    amount: 799,
+    amount: 2799, // £27.99
+  },
+  'natural-fruits': {
+    name: 'Sacred Fruits & Botanicals Bible',
+    description: "Nature's most powerful fruits and botanicals — compounds science is only beginning to understand.",
+    amount: 2799, // £27.99
   },
   'bundle-all': {
-    name: 'Healvana Complete Bundle (All 3 Guides)',
-    description: 'All three Healvana digital guides — dopamine reset, oils, and minerals. Save £6.',
-    amount: 1999,
+    name: 'Healvana Complete Bundle — All 4 Guides',
+    description: 'Every Healvana digital guide in one purchase. Save over £50.',
+    amount: 5999, // £59.99
   },
 }
 

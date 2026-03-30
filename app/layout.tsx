@@ -29,31 +29,31 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [menuOpen])
 
   const navLinks = [
-    { href: '/',          label: 'Home'          },
-    { href: '/shop',      label: 'Shop'          },
-    { href: '/problems',  label: 'Problems'      },
-    { href: '/about',     label: 'About'         },
-    { href: '/blog',      label: 'Journal'       },
-    { href: '/faq',       label: 'FAQ'           },
+    { href: '/',         label: 'Home'     },
+    { href: '/shop',     label: 'Shop'     },
+    { href: '/problems', label: 'Problems' },
+    { href: '/about',    label: 'About'    },
+    { href: '/blog',     label: 'Journal'  },
+    { href: '/faq',      label: 'FAQ'      },
   ]
 
   const mobileLinks = [
-    { href: '/',               label: 'Home'                    },
-    { href: '/shop',           label: '🛍️ Shop All Products'    },
-    { href: '/problems',       label: '⚠️ Find Your Solution'   },
-    { href: '/natural-oils',   label: '🌿 Natural Oils'         },
-    { href: '/natural-salts',  label: '💎 Natural Salts'        },
-    { href: '/dopamine-detox', label: '🧠 Mind Reset'           },
-    { href: '/about',          label: '🌍 About Healvana'       },
-    { href: '/blog',           label: '📖 Journal'              },
-    { href: '/faq',            label: 'FAQ'                     },
+    { href: '/',               label: 'Home'                  },
+    { href: '/shop',           label: '🛍️ Shop All Products'  },
+    { href: '/problems',       label: '⚠️ Find Your Solution' },
+    { href: '/natural-oils',   label: '🌿 Natural Oils'       },
+    { href: '/natural-salts',  label: '💎 Natural Salts'      },
+    { href: '/dopamine-detox', label: '🧠 Mind Reset'         },
+    { href: '/about',          label: '🌍 About Healvana'     },
+    { href: '/blog',           label: '📖 Journal'            },
+    { href: '/faq',            label: 'FAQ'                   },
   ]
 
   return (
     <html lang="en">
       <head>
         <title>Healvana — Natural Wellness, Rooted in Nature</title>
-        <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, and mineral protocols rooted in nature." />
+        <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, minerals, and sacred fruits rooted in nature." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title"       content="Healvana — Natural Wellness" />
         <meta property="og:description" content="Premium digital guides for natural wellness rooted in nature." />
@@ -74,7 +74,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                 Healvana
               </Link>
 
-              {/* Desktop links */}
               <nav className="nav-links">
                 {navLinks.map(({ href, label }) => (
                   <Link key={href} href={href}>{label}</Link>
@@ -87,7 +86,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                 </Link>
               </div>
 
-              {/* Hamburger */}
               <button
                 className="nav-mobile-toggle"
                 onClick={() => setMenuOpen(v => !v)}
@@ -99,7 +97,6 @@ export default function Layout({ children }: { children: ReactNode }) {
               </button>
             </div>
 
-            {/* Mobile menu */}
             <div className={`nav-mobile-menu ${menuOpen ? 'open' : ''}`}>
               {mobileLinks.map(({ href, label }) => (
                 <Link key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
@@ -128,7 +125,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
                 gap: '2.5rem', marginBottom: '1rem',
               }}>
-                {/* Brand */}
                 <div style={{ gridColumn: 'span 2' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1rem' }}>
                     <img src="/logo.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
@@ -142,8 +138,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                       <span key={t} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{t}</span>
                     ))}
                   </div>
+                  {/* Trust — no 30-day guarantee */}
                   <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-                    {['🔒 Secure Checkout', '⚡ Instant Delivery', '↩️ 30-Day Guarantee'].map(b => (
+                    {['🔒 Secure Checkout', '⚡ Instant Delivery', '🌍 Worldwide Access'].map(b => (
                       <span key={b} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>{b}</span>
                     ))}
                   </div>
@@ -152,9 +149,10 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <div>
                   <h5>Products</h5>
                   <Link href="/shop">All Products</Link>
-                  <Link href="/dopamine-detox">7-Day Reset — £9.99</Link>
-                  <Link href="/natural-oils">Natural Oils — £7.99</Link>
-                  <Link href="/natural-salts">Natural Salts — £7.99</Link>
+                  <Link href="/dopamine-detox">7-Day Reset — £29.99</Link>
+                  <Link href="/natural-oils">Natural Oils — £27.99</Link>
+                  <Link href="/natural-salts">Natural Salts — £27.99</Link>
+                  <Link href="/shop">Sacred Fruits — £27.99</Link>
                 </div>
 
                 <div>
