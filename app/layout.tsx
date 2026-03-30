@@ -13,19 +13,34 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    const onResize = () => { if (window.innerWidth > 900) setMenuOpen(false) }
-    window.addEventListener('scroll', onScroll)
+    const onResize = () => {
+      if (window.innerWidth > 900) setMenuOpen(false)
+    }
+    const onScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('resize', onResize)
+    window.addEventListener('scroll', onScroll)
     return () => {
-      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 
+  // Lock body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+    }
   }, [menuOpen])
 
   const navLinks = [
@@ -38,22 +53,24 @@ export default function Layout({ children }: { children: ReactNode }) {
   ]
 
   const mobileLinks = [
-    { href: '/',               label: 'Home'                  },
+    { href: '/',               label: '🏠 Home'                },
     { href: '/shop',           label: '🛍️ Shop All Products'  },
     { href: '/problems',       label: '⚠️ Find Your Solution' },
     { href: '/natural-oils',   label: '🌿 Natural Oils'       },
     { href: '/natural-salts',  label: '💎 Natural Salts'      },
     { href: '/dopamine-detox', label: '🧠 Mind Reset'         },
-    { href: '/about',          label: '🌍 About Healvana'     },
+    { href: '/about',          label: '🌍 About'              },
     { href: '/blog',           label: '📖 Journal'            },
-    { href: '/faq',            label: 'FAQ'                   },
+    { href: '/faq',            label: '❓ FAQ'                },
   ]
+
+  const close = () => setMenuOpen(false)
 
   return (
     <html lang="en">
       <head>
         <title>Healvana — Natural Wellness, Rooted in Nature</title>
-        <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, minerals, and sacred fruits rooted in nature." />
+        <meta name="description" content="Premium digital guides for natural wellness. Dopamine reset, natural oils, minerals, and sacred fruits." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title"       content="Healvana — Natural Wellness" />
         <meta property="og:description" content="Premium digital guides for natural wellness rooted in nature." />
@@ -62,73 +79,109 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body>
         <div className="site-wrapper bg-grain">
 
-          {/* ── NAV ── */}
-          <header className="nav" style={{
-            boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-            transition: 'box-shadow 0.3s',
-          }}>
+          {/* ══ NAV ══ */}
+          <header
+            className="nav"
+            style={{ boxShadow: scrolled ? 'var(--shadow-md)' : 'none', transition: 'box-shadow 0.3s' }}
+          >
             <div className="nav-inner">
 
-              <Link href="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
+              {/* Logo */}
+              <Link href="/" className="nav-logo" onClick={close}>
                 <img src="/logo.png" alt="Healvana" />
                 Healvana
               </Link>
 
+              {/* Desktop links */}
               <nav className="nav-links">
                 {navLinks.map(({ href, label }) => (
                   <Link key={href} href={href}>{label}</Link>
                 ))}
               </nav>
 
+              {/* Desktop CTA */}
               <div className="nav-right">
                 <Link href="/shop" className="btn btn-primary" style={{ fontSize: '0.82rem', padding: '10px 22px' }}>
                   View Products
                 </Link>
               </div>
 
+              {/* Hamburger — mobile only */}
               <button
                 className="nav-mobile-toggle"
                 onClick={() => setMenuOpen(v => !v)}
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={menuOpen}
               >
-                <span style={{ transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none', transition: 'transform 0.3s' }} />
-                <span style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.3s' }} />
-                <span style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none', transition: 'transform 0.3s' }} />
+                <span style={{
+                  transform: menuOpen ? 'rotate(45deg) translate(4px, 7px)' : 'none',
+                  transition: 'transform 0.3s',
+                }} />
+                <span style={{
+                  opacity: menuOpen ? 0 : 1,
+                  transition: 'opacity 0.2s',
+                }} />
+                <span style={{
+                  transform: menuOpen ? 'rotate(-45deg) translate(4px, -7px)' : 'none',
+                  transition: 'transform 0.3s',
+                }} />
               </button>
+
             </div>
 
-            <div className={`nav-mobile-menu ${menuOpen ? 'open' : ''}`}>
+            {/* ══ MOBILE MENU OVERLAY ══ */}
+            <div className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}>
+
               {mobileLinks.map(({ href, label }) => (
-                <Link key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
+                <Link key={href} href={href} onClick={close}>{label}</Link>
               ))}
-              <Link
-                href="/shop"
-                className="btn btn-primary"
-                style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}
-                onClick={() => setMenuOpen(false)}
-              >
-                View Products →
-              </Link>
+
+              <div style={{ width: '100%', maxWidth: 360, marginTop: '1rem' }}>
+                <Link
+                  href="/shop"
+                  className="btn btn-primary"
+                  style={{ width: '100%', justifyContent: 'center', padding: '14px', fontSize: '0.95rem' }}
+                  onClick={close}
+                >
+                  View All Products →
+                </Link>
+              </div>
+
+              {/* Trust badges in mobile menu */}
+              <div style={{
+                display: 'flex', gap: '0.5rem', flexWrap: 'wrap',
+                justifyContent: 'center', marginTop: '1.5rem',
+                maxWidth: 360,
+              }}>
+                {['🔒 Secure', '⚡ Instant Download', '🌿 100% Natural'].map(b => (
+                  <span key={b} style={{
+                    fontSize: '0.72rem', fontWeight: 600, color: 'var(--muted)',
+                    background: 'var(--sage-soft)', borderRadius: 'var(--radius-pill)',
+                    padding: '5px 12px',
+                  }}>{b}</span>
+                ))}
+              </div>
+
             </div>
           </header>
 
+          {/* ══ PAGE CONTENT ══ */}
           <main>{children}</main>
 
-          {/* ── FOOTER ── */}
+          {/* ══ FOOTER ══ */}
           <footer className="footer">
             <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.35 }} />
-            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80, opacity: 0.3 }} />
+            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80,  opacity: 0.3  }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-
-              {/* Footer columns */}
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                gap: '2.5rem', marginBottom: '1rem',
+                gap: '2.5rem',
+                marginBottom: '1rem',
               }}>
 
-                {/* Brand col — no logo image, just text */}
+                {/* Brand */}
                 <div style={{ gridColumn: 'span 2' }}>
                   <div className="footer-logo-text" style={{ marginBottom: '1rem' }}>Healvana</div>
                   <p style={{ fontSize: '0.87rem', maxWidth: '250px', lineHeight: 1.85, color: 'rgba(255,255,255,0.5)' }}>
@@ -175,14 +228,12 @@ export default function Layout({ children }: { children: ReactNode }) {
 
               <hr className="divider-gradient" style={{ margin: '2rem 0 1.5rem' }} />
 
-              {/* Footer bar — no logo, no Stripe mention */}
               <div className="footer-bar">
                 <span>© {new Date().getFullYear()} Healvana. All rights reserved.</span>
-                <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.72rem', fontStyle: 'italic' }}>
+                <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.2)', fontSize: '0.72rem' }}>
                   Heal yourself, the way nature intended.
                 </span>
               </div>
-
             </div>
           </footer>
 
