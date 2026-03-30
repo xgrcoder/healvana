@@ -11,13 +11,11 @@ const PROBLEMS = [
     icon: '💇',
     title: 'Hair Loss & Thinning',
     category: 'Physical',
-    severity: 'Common',
-    description: 'Millions of people experience progressive hair thinning and loss — often caused by DHT sensitivity, poor scalp circulation, and nutritional deficiencies that conventional products completely ignore.',
-    teaser: 'There are 3 specific natural oils that have been used for centuries to stimulate hair follicles, block DHT naturally, and restore scalp health from the root.',
-    lockedSolution: 'Castor Oil + Rosemary Oil + Peppermint Oil protocol with specific application method',
+    description: 'Millions experience progressive hair thinning and loss — often caused by DHT sensitivity, poor scalp circulation, and nutritional deficiencies that conventional products completely ignore.',
+    teaser: 'There are 3 specific natural oils used for centuries to stimulate hair follicles, block DHT naturally, and restore scalp health from the root. The results are well documented — the methods are not widely known.',
     productId: 'natural-oils',
     productName: 'Natural Oils Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-oils',
     stat: '45M+',
     statLabel: 'people affected in the UK',
@@ -28,13 +26,11 @@ const PROBLEMS = [
     icon: '😴',
     title: 'Chronic Fatigue & Low Energy',
     category: 'Energy',
-    severity: 'Very Common',
-    description: "Persistent exhaustion that doesn't go away with sleep. Most people reach for caffeine — which makes the underlying problem worse by depleting the very minerals your cells need to produce energy.",
+    description: "Persistent exhaustion that doesn't go away with sleep. Most people reach for caffeine — which depletes the very minerals your cells need to produce energy, making the root problem worse.",
     teaser: "The solution isn't more stimulants. It's replenishing the exact minerals your mitochondria need to generate ATP. Ancient cultures knew this — and the minerals still exist today.",
-    lockedSolution: 'Magnesium sulphate + Celtic sea salt morning protocol with specific dosage',
     productId: 'natural-salts',
     productName: 'Natural Salts & Minerals Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-salts',
     stat: '1 in 5',
     statLabel: 'adults experience chronic fatigue',
@@ -45,13 +41,11 @@ const PROBLEMS = [
     icon: '🧠',
     title: 'Brain Fog & Poor Focus',
     category: 'Mental',
-    severity: 'Epidemic',
     description: "The inability to think clearly, concentrate, or feel mentally sharp. In the age of smartphones and infinite scroll, your brain's dopamine system has been hijacked — making deep focus feel almost impossible.",
-    teaser: 'This is not a willpower problem. Your dopamine receptors have been overstimulated to the point of desensitisation. The fix is a structured neurological reset — not more productivity hacks.',
-    lockedSolution: '7-day dopamine detox protocol with day-by-day schedule and focus rebuilding system',
+    teaser: 'This is not a willpower problem. Your dopamine receptors have been overstimulated to the point of desensitisation. The fix is a structured neurological reset — not another productivity app.',
     productId: 'dopamine-reset',
     productName: '7-Day Dopamine Reset',
-    productPrice: '£9.99',
+    productPrice: '£29.99',
     productHref: '/dopamine-detox',
     stat: '77%',
     statLabel: 'of adults report regular brain fog',
@@ -62,13 +56,11 @@ const PROBLEMS = [
     icon: '🌙',
     title: 'Poor Sleep & Insomnia',
     category: 'Recovery',
-    severity: 'Very Common',
     description: "Lying awake, racing thoughts, waking at 3am — modern sleep issues are almost always rooted in magnesium deficiency, cortisol dysregulation, and overstimulated nervous systems.",
-    teaser: 'There is a specific pre-sleep mineral protocol that has been used for thousands of years to calm the nervous system and induce deep, restorative sleep — without medication or supplements.',
-    lockedSolution: 'Epsom salt bath protocol + lavender oil application with specific timing and dosage',
+    teaser: 'There is a specific pre-sleep mineral protocol used for thousands of years to calm the nervous system and induce deep, restorative sleep — without medication or dependency.',
     productId: 'natural-salts',
     productName: 'Natural Salts & Minerals Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-salts',
     stat: '16M',
     statLabel: 'UK adults have sleep problems',
@@ -79,13 +71,11 @@ const PROBLEMS = [
     icon: '🌸',
     title: 'Skin Problems & Ageing',
     category: 'Skin',
-    severity: 'Common',
     description: 'Acne, eczema, premature ageing, dull skin — most people spend hundreds on synthetic creams that treat symptoms. The cause is almost always inflammation, gut imbalance, and the absence of specific fatty acids.',
-    teaser: "Nature produced the exact compounds your skin needs to heal, regenerate, and glow. The same oils used by ancient Egyptians, Romans, and South American healers are still the most effective solutions known.",
-    lockedSolution: 'Rosehip + Tea Tree + Frankincense protocol specific to skin condition type',
+    teaser: "Nature produced the exact compounds your skin needs to heal and regenerate. The same oils used by ancient Egyptians and South American healers remain the most effective solutions known to dermatology.",
     productId: 'natural-oils',
     productName: 'Natural Oils Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-oils',
     stat: '60%',
     statLabel: 'of people have a chronic skin condition',
@@ -96,13 +86,11 @@ const PROBLEMS = [
     icon: '⚡',
     title: 'Stress & Anxiety',
     category: 'Mental',
-    severity: 'Epidemic',
     description: "Constant low-grade stress, racing thoughts, physical tension — modern anxiety is largely a nervous system that has never been taught to switch off. Medication suppresses symptoms. Nature addresses the root.",
     teaser: 'Three specific botanical oils directly interact with GABA receptors — the same receptors that anti-anxiety medications target — without dependency, withdrawal, or side effects.',
-    lockedSolution: 'Lavender + Frankincense + Bergamot protocol with aromatherapy and topical application guide',
     productId: 'natural-oils',
     productName: 'Natural Oils Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-oils',
     stat: '8M',
     statLabel: 'people in the UK have anxiety disorders',
@@ -113,13 +101,11 @@ const PROBLEMS = [
     icon: '🌿',
     title: 'Digestive Problems & Bloating',
     category: 'Gut Health',
-    severity: 'Common',
-    description: "IBS, bloating, constipation, acid reflux — the gut microbiome has been decimated by processed food, antibiotics, and stress. Most people have never experienced what a healthy gut actually feels like.",
-    teaser: 'Specific natural oils have clinically demonstrated anti-spasmodic and antimicrobial properties that can fundamentally reset your digestive system in a matter of weeks.',
-    lockedSolution: 'Peppermint oil + coconut oil + castor oil gut protocol with internal use guide',
+    description: "IBS, bloating, constipation, acid reflux — the gut microbiome has been decimated by processed food, antibiotics, and stress. Most people have never experienced what a truly healthy gut feels like.",
+    teaser: 'Specific natural oils have clinically demonstrated anti-spasmodic and antimicrobial properties that can fundamentally reset your digestive system — within weeks, not months.',
     productId: 'natural-oils',
     productName: 'Natural Oils Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-oils',
     stat: '1 in 3',
     statLabel: 'adults suffer from digestive issues',
@@ -130,13 +116,11 @@ const PROBLEMS = [
     icon: '🦴',
     title: 'Joint Pain & Inflammation',
     category: 'Physical',
-    severity: 'Common',
     description: 'Chronic joint pain, stiffness, and inflammation are increasingly common — even in young people. The root is almost always systemic inflammation driven by mineral deficiency and poor cellular hydration.',
     teaser: 'Ancient healers used specific mineral-rich salt soaks to draw inflammation out of joints transdermally. Modern research has confirmed exactly why this works — and which minerals matter most.',
-    lockedSolution: 'Dead Sea salt + Epsom salt therapeutic soak protocol with temperature and timing guide',
     productId: 'natural-salts',
     productName: 'Natural Salts & Minerals Bible',
-    productPrice: '£7.99',
+    productPrice: '£27.99',
     productHref: '/natural-salts',
     stat: '10M',
     statLabel: 'UK adults live with arthritis',
@@ -147,13 +131,11 @@ const PROBLEMS = [
     icon: '📱',
     title: 'Phone Addiction & Digital Overload',
     category: 'Mental',
-    severity: 'Epidemic',
-    description: "The average person checks their phone 96 times a day. This isn't a habit — it's a neurological dependency. Your brain's reward system has been systematically rewired by apps designed by neuroscientists to create compulsion.",
+    description: "The average person checks their phone 96 times a day. This isn't a habit — it's a neurological dependency. Your brain's reward system has been systematically rewired by apps designed to create compulsion.",
     teaser: "This can be reversed. The brain is neuroplastic — but the reset requires a structured, science-backed protocol. Willpower alone doesn't work against dopamine dysregulation.",
-    lockedSolution: '7-day structured digital detox with daily protocols, focus rebuilding and natural dopamine restoration',
     productId: 'dopamine-reset',
     productName: '7-Day Dopamine Reset',
-    productPrice: '£9.99',
+    productPrice: '£29.99',
     productHref: '/dopamine-detox',
     stat: '96x',
     statLabel: 'average phone checks per day',
@@ -183,7 +165,6 @@ export default function ProblemsPage() {
           backgroundImage: 'radial-gradient(circle, rgba(26,74,46,1) 1px, transparent 1px)',
           backgroundSize: '28px 28px', pointerEvents: 'none',
         }} />
-
         <div className="container-sm" style={{ position: 'relative', zIndex: 1 }}>
           <div className="anim-up" style={{ marginBottom: '1.5rem' }}>
             <span className="tag tag-sage">Nature Has the Answer</span>
@@ -193,9 +174,8 @@ export default function ProblemsPage() {
             <span className="gradient-text" style={{ fontStyle: 'italic' }}>Nature&apos;s Solutions.</span>
           </h1>
           <p className="lead anim-up d2" style={{ maxWidth: '560px', margin: '0 auto 2rem' }}>
-            Every common health problem has a natural root cause — and a natural solution. The answer existed long before pharmaceutical companies did. We&apos;ve documented them all.
+            Every common health problem has a natural root cause — and a natural solution. The answer existed long before pharmaceutical companies did. We have documented them all.
           </p>
-          {/* Lock notice */}
           <div className="anim-up d3" style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
             background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)',
@@ -203,7 +183,7 @@ export default function ProblemsPage() {
             borderRadius: 'var(--radius-pill)', padding: '10px 22px',
             fontSize: '0.84rem', color: 'var(--forest)', fontWeight: 600,
           }}>
-            🔒 Specific solutions are unlocked when you purchase the relevant guide
+            🔒 Full protocols unlocked when you purchase the relevant guide
           </div>
         </div>
       </section>
@@ -221,10 +201,10 @@ export default function ProblemsPage() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1.5rem, 4vw, 4rem)', flexWrap: 'wrap' }}>
             {[
-              { v: '9',    l: 'Problems solved' },
-              { v: '100%', l: 'Natural solutions' },
-              { v: '3',    l: 'Guides covering all' },
-              { v: '£0',   l: 'In toxic chemicals' },
+              { v: '9',    l: 'Problems addressed'  },
+              { v: '100%', l: 'Natural solutions'    },
+              { v: '4',    l: 'Guides covering all'  },
+              { v: '£0',   l: 'In toxic chemicals'   },
             ].map(({ v, l }) => (
               <div key={l} style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'white', lineHeight: 1 }}>{v}</div>
@@ -239,18 +219,17 @@ export default function ProblemsPage() {
       <section className="section" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
         <div className="orb orb-green" style={{ width: 400, height: 400, top: -100, right: -80, opacity: 0.35 }} />
         <div className="orb orb-blue"  style={{ width: 350, height: 350, bottom: -80, left: -80, opacity: 0.3 }} />
-
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {PROBLEMS.map(({ id, icon, title, category, description, teaser, productId, productName, productPrice, productHref, stat, statLabel, tags }) => (
-              <div key={id} className="card" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
+              <div key={id} className="card" style={{ padding: 0, overflow: 'hidden' }}>
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
                 }}>
 
                   {/* LEFT — Problem */}
-                  <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', borderRight: '1px solid rgba(168,224,188,0.3)' }}>
+                  <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', borderRight: '1px solid rgba(168,224,188,0.2)' }}>
                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.2rem' }}>
                       <div style={{
                         width: 56, height: 56, borderRadius: 'var(--radius-md)', flexShrink: 0,
@@ -272,10 +251,7 @@ export default function ProblemsPage() {
                         <h3 style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', marginBottom: 0 }}>{title}</h3>
                       </div>
                     </div>
-
                     <p style={{ color: 'var(--muted)', fontSize: '0.88rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>{description}</p>
-
-                    {/* Stat */}
                     <div style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
                       background: 'var(--ivory)', border: '1px solid var(--border-warm)',
@@ -289,45 +265,37 @@ export default function ProblemsPage() {
                   {/* RIGHT — Teased Solution */}
                   <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', background: 'var(--sage-soft)', position: 'relative', overflow: 'hidden' }}>
                     <div className="orb orb-green" style={{ width: 200, height: 200, top: -60, right: -60, opacity: 0.5 }} />
-
                     <div style={{ position: 'relative', zIndex: 1 }}>
                       <div className="gold-rule" style={{ marginBottom: '1rem' }}>
                         <p className="eyebrow">Nature&apos;s Answer</p>
                       </div>
-
-                      {/* Teaser text */}
                       <p style={{ color: 'var(--forest)', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem', fontWeight: 500 }}>
                         {teaser}
                       </p>
-
-                      {/* Locked solution box */}
+                      {/* Locked box */}
                       <div style={{
                         background: 'white', border: '1px solid rgba(168,224,188,0.5)',
                         borderRadius: 'var(--radius-md)', padding: '1.2rem',
                         marginBottom: '1.5rem', position: 'relative', overflow: 'hidden',
                       }}>
-                        {/* Blur overlay */}
                         <div style={{
                           position: 'absolute', inset: 0,
                           backdropFilter: 'blur(6px)',
-                          background: 'rgba(255,255,255,0.6)',
+                          background: 'rgba(255,255,255,0.65)',
                           borderRadius: 'var(--radius-md)',
                           display: 'flex', flexDirection: 'column',
                           alignItems: 'center', justifyContent: 'center',
-                          gap: '0.5rem', zIndex: 2,
+                          gap: '0.4rem', zIndex: 2,
                         }}>
-                          <span style={{ fontSize: '1.5rem' }}>🔒</span>
-                          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--forest)', textAlign: 'center' }}>
-                            Unlock the full protocol
+                          <span style={{ fontSize: '1.4rem' }}>🔒</span>
+                          <span style={{ fontSize: '0.76rem', fontWeight: 700, color: 'var(--forest)', textAlign: 'center' }}>
+                            Full protocol inside the guide
                           </span>
                         </div>
-                        {/* Hidden content (visible through blur) */}
-                        <div style={{ fontSize: '0.82rem', color: 'var(--muted)', lineHeight: 1.6, filter: 'blur(3px)', userSelect: 'none' }}>
-                          The specific protocol involves three key ingredients applied in a precise sequence. Morning application for 21 days with specific quantities per body weight...
-                        </div>
+                        <p style={{ fontSize: '0.82rem', color: 'var(--muted)', filter: 'blur(4px)', userSelect: 'none', lineHeight: 1.5 }}>
+                          The specific protocol involves three key ingredients applied in a precise sequence with specific quantities and timing per body weight and condition severity...
+                        </p>
                       </div>
-
-                      {/* CTA */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
                         <BuyButton
                           productId={productId}
@@ -340,7 +308,7 @@ export default function ProblemsPage() {
                         </Link>
                       </div>
                       <p style={{ color: 'var(--subtle)', fontSize: '0.72rem', marginTop: '0.6rem' }}>
-                        🔒 Instant download · 30-day guarantee
+                        🔒 Instant download · Worldwide access
                       </p>
                     </div>
                   </div>
@@ -352,7 +320,7 @@ export default function ProblemsPage() {
         </div>
       </section>
 
-      {/* ── BUNDLE CTA ── */}
+      {/* ── BUNDLE CTA — updated copy ── */}
       <section className="section-sm" style={{ background: 'var(--ivory)', borderTop: '1px solid var(--border-warm)' }}>
         <div className="container-xs">
           <div style={{
@@ -362,24 +330,46 @@ export default function ProblemsPage() {
           }}>
             <div className="orb orb-gold"  style={{ width: 300, height: 300, top: -80,  right: -80 }} />
             <div className="orb orb-green" style={{ width: 220, height: 220, bottom: -60, left: -60 }} />
+
             <span className="tag tag-dark" style={{ marginBottom: '1.2rem', display: 'inline-flex', position: 'relative', zIndex: 1 }}>
-              Best Value
+              Complete Access
             </span>
+
             <h2 style={{ color: 'white', marginBottom: '0.75rem', position: 'relative', zIndex: 1 }}>
-              Unlock Every Solution<br />
-              <em style={{ color: 'var(--gold-light)' }}>All 3 Guides — £19.99</em>
+              Unlock Every Protocol.<br />
+              <em style={{ color: 'var(--gold-light)' }}>One Simple Price.</em>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '420px', margin: '0 auto 2rem', lineHeight: 1.8, position: 'relative', zIndex: 1, fontSize: '0.9rem' }}>
-              Get every natural solution across all 9 problems — plus 50+ oils, 20+ minerals, and the complete dopamine reset protocol.
+
+            <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '460px', margin: '0 auto 1.5rem', lineHeight: 1.85, position: 'relative', zIndex: 1, fontSize: '0.92rem' }}>
+              Get the complete Healvana library — all four guides, every protocol, every solution across every problem on this page. Instant access. Everything in one place.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-              <BuyButton productId="bundle-all" label="Get All 3 Guides →" className="btn btn-gold" style={{ padding: '14px 32px' }} />
-              <Link href="/shop" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', padding: '14px 24px' }}>
-                View Individual Guides
-              </Link>
+
+            {/* What's included */}
+            <div style={{
+              display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap',
+              marginBottom: '2rem', position: 'relative', zIndex: 1,
+            }}>
+              {['🧠 Mind Reset', '🌿 Natural Oils', '💎 Salts & Minerals', '🍇 Sacred Fruits'].map(item => (
+                <span key={item} className="tag tag-dark" style={{ fontSize: '0.65rem' }}>{item}</span>
+              ))}
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '0.76rem', marginTop: '1rem', position: 'relative', zIndex: 1 }}>
-              🔒 Secure checkout · Instant download · 30-day money back guarantee
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
+              <div>
+                <span style={{ display: 'block', color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', textDecoration: 'line-through' }}>£113.96</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 5vw, 3rem)', color: 'white', lineHeight: 1 }}>£59.99</span>
+                <span style={{ display: 'block', color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', marginTop: 2 }}>Save over £50</span>
+              </div>
+              <BuyButton
+                productId="bundle-all"
+                label="Get Complete Access →"
+                className="btn btn-gold"
+                style={{ padding: '15px 32px', fontSize: '0.95rem' }}
+              />
+            </div>
+
+            <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.74rem', marginTop: '1rem', position: 'relative', zIndex: 1 }}>
+              🔒 Secure checkout · Instant download · Worldwide access
             </p>
           </div>
         </div>

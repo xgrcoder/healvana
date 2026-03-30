@@ -117,29 +117,29 @@ export default function Layout({ children }: { children: ReactNode }) {
           {/* ── FOOTER ── */}
           <footer className="footer">
             <div className="orb orb-green" style={{ width: 400, height: 400, top: -150, right: -100, opacity: 0.35 }} />
-            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80,  opacity: 0.3  }} />
+            <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -100, left: -80, opacity: 0.3 }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+
+              {/* Footer columns */}
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
                 gap: '2.5rem', marginBottom: '1rem',
               }}>
+
+                {/* Brand col — no logo image, just text */}
                 <div style={{ gridColumn: 'span 2' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1rem' }}>
-                    <img src="/logo.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
-                    <div className="footer-logo-text">Healvana</div>
-                  </div>
-                  <p style={{ fontSize: '0.87rem', maxWidth: '250px', lineHeight: 1.75, color: 'rgba(255,255,255,0.5)' }}>
-                    Heal through nature. No shortcuts. No chemicals. Just the earth.
+                  <div className="footer-logo-text" style={{ marginBottom: '1rem' }}>Healvana</div>
+                  <p style={{ fontSize: '0.87rem', maxWidth: '250px', lineHeight: 1.85, color: 'rgba(255,255,255,0.5)' }}>
+                    Heal yourself, the way nature intended.
                   </p>
                   <div style={{ display: 'flex', gap: '8px', marginTop: '1.25rem', flexWrap: 'wrap' }}>
                     {['Mind', 'Body', 'Spirit'].map(t => (
                       <span key={t} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{t}</span>
                     ))}
                   </div>
-                  {/* Trust — no 30-day guarantee */}
-                  <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {['🔒 Secure Checkout', '⚡ Instant Delivery', '🌍 Worldwide Access'].map(b => (
                       <span key={b} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>{b}</span>
                     ))}
@@ -170,14 +170,19 @@ export default function Layout({ children }: { children: ReactNode }) {
                   <Link href="#">Refund Policy</Link>
                   <Link href="#">Contact Us</Link>
                 </div>
+
               </div>
 
               <hr className="divider-gradient" style={{ margin: '2rem 0 1.5rem' }} />
 
+              {/* Footer bar — no logo, no Stripe mention */}
               <div className="footer-bar">
                 <span>© {new Date().getFullYear()} Healvana. All rights reserved.</span>
-                <span>Powered by Stripe 🔒</span>
+                <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.72rem', fontStyle: 'italic' }}>
+                  Heal yourself, the way nature intended.
+                </span>
               </div>
+
             </div>
           </footer>
 
