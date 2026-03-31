@@ -50,6 +50,45 @@ const FRUITS = [
   },
 ]
 
+const PRODUCTS = [
+  {
+    id: 'dopamine-reset',
+    icon: '🧠',
+    gradient: 'linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4060 100%)',
+    label: 'System 01', name: '7-Day Dopamine Reset', price: '£29.99',
+    badge: 'Most Popular',
+    desc: 'Eliminate digital overload, restore your natural dopamine baseline, and rebuild real focus in 7 structured days.',
+    href: '/dopamine-detox',
+  },
+  {
+    id: 'natural-oils',
+    icon: '🌿',
+    gradient: 'linear-gradient(135deg, #1a4a2e 0%, var(--sage) 100%)',
+    label: 'System 02', name: 'Natural Oils Bible', price: '£27.99',
+    badge: '50+ Oils',
+    desc: 'Every major healing oil — properties, application methods, dosage guides, and the conditions each one treats.',
+    href: '/natural-oils',
+  },
+  {
+    id: 'natural-salts',
+    icon: '💎',
+    gradient: 'linear-gradient(135deg, var(--ocean) 0%, #2d5a8a 60%, #1a3a6a 100%)',
+    label: 'System 03', name: 'Natural Salts & Minerals', price: '£27.99',
+    badge: '20+ Minerals',
+    desc: "Ancient earth minerals that restore your body's cellular balance, sleep, and energy from the inside out.",
+    href: '/natural-salts',
+  },
+  {
+    id: 'natural-fruits',
+    icon: '🍇',
+    gradient: 'linear-gradient(135deg, #3a1a5a 0%, #6a3a8a 60%, #4a2a7a 100%)',
+    label: 'System 04', name: 'Sacred Fruits Bible', price: '£27.99',
+    badge: 'New Release',
+    desc: "The most powerful healing fruits on earth — schisandra, soursop, amla, sea buckthorn and more. Nature's hidden pharmacy.",
+    href: '/shop',
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -84,14 +123,8 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Trust badges — no 30-day guarantee */}
           <div className="anim-in d4" style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-            {[
-              '🔒 Secure Checkout',
-              '⚡ Instant Download',
-              '🌿 100% Natural',
-              '🌍 Worldwide Access',
-            ].map(badge => (
+            {['🔒 Secure Checkout', '⚡ Instant Download', '🌿 100% Natural', '🌍 Worldwide Access'].map(badge => (
               <div key={badge} style={{
                 display: 'flex', alignItems: 'center', gap: '7px',
                 background: 'rgba(255,255,255,0.75)',
@@ -179,7 +212,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ PRODUCTS ══ */}
+      {/* ══ PRODUCTS — all 4 cards ══ */}
       <section id="products" className="section bg-sage-mesh" style={{ position: 'relative', overflow: 'hidden' }}>
         <div className="orb orb-green" style={{ width: 400, height: 400, top: -80, right: -80, opacity: 0.35 }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -193,36 +226,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid-3" style={{ marginBottom: '2.5rem' }}>
-            {[
-              {
-                id: 'dopamine-reset',
-                icon: '🧠',
-                gradient: 'linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, #1a4060 100%)',
-                label: 'System 01', name: '7-Day Dopamine Reset', price: '£29.99',
-                badge: 'Most Popular',
-                desc: 'Eliminate digital overload, restore your natural dopamine baseline, and rebuild real focus in 7 structured days.',
-                href: '/dopamine-detox',
-              },
-              {
-                id: 'natural-oils',
-                icon: '🌿',
-                gradient: 'linear-gradient(135deg, #1a4a2e 0%, var(--sage) 100%)',
-                label: 'System 02', name: 'Natural Oils Bible', price: '£27.99',
-                badge: '50+ Oils',
-                desc: 'Every major healing oil — properties, application methods, dosage guides, and the conditions each one treats.',
-                href: '/natural-oils',
-              },
-              {
-                id: 'natural-salts',
-                icon: '💎',
-                gradient: 'linear-gradient(135deg, var(--ocean) 0%, #2d5a8a 60%, #1a3a6a 100%)',
-                label: 'System 03', name: 'Natural Salts & Minerals', price: '£27.99',
-                badge: '20+ Minerals',
-                desc: "Ancient earth minerals that restore your body's cellular balance, sleep, and energy from the inside out.",
-                href: '/natural-salts',
-              },
-            ].map(({ id, icon, gradient, label, name, price, badge, desc, href }) => (
+          {/* ── 4-column grid, collapses to 2 then 1 on mobile ── */}
+          <div className="products-grid" style={{ marginBottom: '2.5rem' }}>
+            {PRODUCTS.map(({ id, icon, gradient, label, name, price, badge, desc, href }) => (
               <div key={id} className="product-card" style={{ position: 'relative' }}>
                 <div style={{
                   position: 'absolute', top: '1rem', right: '1rem', zIndex: 2,
@@ -232,15 +238,15 @@ export default function Home() {
                 }}>{badge}</div>
                 <div className="product-card-img" style={{ background: gradient, position: 'relative', overflow: 'hidden' }}>
                   <div className="orb orb-gold" style={{ width: 180, height: 180, top: -40, right: -40 }} />
-                  <span style={{ fontSize: 'clamp(3rem, 7vw, 4rem)', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.3))', zIndex: 1, position: 'relative' }}>{icon}</span>
+                  <span style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.3))', zIndex: 1, position: 'relative' }}>{icon}</span>
                 </div>
                 <div className="product-card-body">
                   <span className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>{label}</span>
-                  <h3 style={{ marginBottom: '0.6rem' }}>{name}</h3>
-                  <p style={{ color: 'var(--muted)', fontSize: '0.87rem', lineHeight: 1.7, marginBottom: '1.2rem' }}>{desc}</p>
+                  <h3 style={{ marginBottom: '0.6rem', fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)' }}>{name}</h3>
+                  <p style={{ color: 'var(--muted)', fontSize: '0.83rem', lineHeight: 1.7, marginBottom: '1.2rem' }}>{desc}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--forest)', fontWeight: 500 }}>{price}</span>
-                    <BuyButton productId={id} label="Buy Now →" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.82rem' }} />
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--forest)', fontWeight: 500 }}>{price}</span>
+                    <BuyButton productId={id} label="Buy Now →" className="btn btn-primary" style={{ padding: '9px 16px', fontSize: '0.78rem' }} />
                   </div>
                   <Link href={href} style={{ fontSize: '0.78rem', color: 'var(--sage)', fontWeight: 600 }}>Learn more →</Link>
                 </div>
@@ -256,7 +262,7 @@ export default function Home() {
             gap: '2rem', flexWrap: 'wrap', position: 'relative', overflow: 'hidden',
           }}>
             <div className="orb orb-gold" style={{ width: 300, height: 300, top: -80, right: -60 }} />
-            <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ position: 'relative', zIndex: 1, flex: 1, minWidth: 0 }}>
               <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.62rem' }}>🔥 Best Value — Save Over £50</span>
               </div>
@@ -308,7 +314,6 @@ export default function Home() {
           <div className="grid-3">
             {FRUITS.map(({ icon, name, origin, tease, locked }) => (
               <div key={name} className="card" style={{ position: 'relative', overflow: 'hidden' }}>
-                {/* Header */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
                   <div style={{
                     width: 56, height: 56, borderRadius: 'var(--radius-md)',
@@ -322,11 +327,7 @@ export default function Home() {
                     <span className="tag tag-gold" style={{ fontSize: '0.58rem' }}>{origin}</span>
                   </div>
                 </div>
-
-                {/* Tease text */}
                 <p style={{ color: 'var(--muted)', fontSize: '0.86rem', lineHeight: 1.75, marginBottom: '1.2rem' }}>{tease}</p>
-
-                {/* Locked protocol */}
                 <div style={{
                   background: 'var(--sage-soft)', border: '1px solid rgba(168,224,188,0.4)',
                   borderRadius: 'var(--radius-md)', padding: '1rem',
