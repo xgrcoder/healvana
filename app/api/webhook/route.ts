@@ -201,7 +201,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true })
   }
 
-  const session = event.data.object as Stripe.CheckoutSession
+// AFTER
+const session = event.data.object as Stripe.Checkout.Session
   const productId   = session.metadata?.productId as string
   const customerEmail = session.customer_details?.email
   const customerName  = session.customer_details?.name?.split(' ')[0] || ''
