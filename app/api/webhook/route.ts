@@ -1,24 +1,10 @@
 // ================================================================
 // FILE LOCATION: C:\dev\healvana\app\api\webhook\route.ts
-//
-// SETUP STEPS:
-// 1. npm install resend
-// 2. Sign up at resend.com (free — 3,000 emails/month)
-// 3. Add to .env.local:
-//    RESEND_API_KEY=re_xxxxxxxxxxxx
-//    STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxx
-// 4. In Stripe Dashboard → Webhooks → Add endpoint:
-//    URL: https://www.healvana.co.uk/api/webhook
-//    Event: checkout.session.completed
-// 5. Upload your PDFs to: public/downloads/ folder
 // ================================================================
 
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { Resend } from 'resend'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
-const resend = new Resend(process.env.RESEND_API_KEY!)
 
 // Map product IDs to their download files and names
 const PRODUCT_MAP: Record<string, {
@@ -53,7 +39,7 @@ const PRODUCT_MAP: Record<string, {
   },
   'bundle-all': {
     name: 'Healvana Complete Bundle',
-    filename: '', // handled specially below
+    filename: '',
     description: 'All four Healvana guides — complete access to the full knowledge library.',
     emoji: '🌍',
   },
@@ -139,7 +125,7 @@ function buildEmailHtml(
 
             <div style="background:#fdf6e0;border-left:3px solid #c49a3c;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
               <p style="color:#6b4a1a;margin:0;font-size:13px;line-height:1.6;">
-                <strong>📌 Save your guide</strong> — download it to your phone, tablet, or computer so you always have it. 
+                <strong>📌 Save your guide</strong> — download it to your phone, tablet, or computer so you always have it.
                 The link will remain active, but we recommend saving a copy.
               </p>
             </div>
@@ -186,6 +172,10 @@ function buildEmailHtml(
 }
 
 export async function POST(req: Request) {
+  // ✅ FIX: Initialised inside the handler so they run at runtime, not build time
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+  const resend = new Resend(process.env.RESEND_API_KEY!)
+
   const body = await req.text()
   const sig  = req.headers.get('stripe-signature')!
 
@@ -201,9 +191,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true })
   }
 
-// AFTER
-const session = event.data.object as Stripe.Checkout.Session
-  const productId   = session.metadata?.productId as string
+  // ✅ FIX: Correct Stripe type for newer SDK versions
+  const session = event.data.object as Stripe.Checkout.Session
+  const productId     = session.metadata?.productId as string
   const customerEmail = session.customer_details?.email
   const customerName  = session.customer_details?.name?.split(' ')[0] || ''
 
