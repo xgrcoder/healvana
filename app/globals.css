@@ -130,6 +130,11 @@ h3 { font-size: clamp(1rem, 2vw, 1.45rem); }
   .section-sm { padding: 2.5rem 0; }
 }
 
+/* FIX: Tighter container padding on very small screens (e.g. 320px) */
+@media (max-width: 380px) {
+  .container, .container-sm, .container-xs { padding: 0 1rem; }
+}
+
 /* ─── GRIDS ─── */
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
@@ -348,6 +353,11 @@ h3 { font-size: clamp(1rem, 2vw, 1.45rem); }
   .btn { padding: 11px 20px; font-size: 0.84rem; }
 }
 
+/* FIX: Prevent button text overflow on very small screens */
+@media (max-width: 360px) {
+  .btn { white-space: normal; text-align: center; }
+}
+
 /* ─── CARDS ─── */
 .card {
   background: white;
@@ -480,10 +490,15 @@ h3 { font-size: clamp(1rem, 2vw, 1.45rem); }
   color: rgba(255,255,255,0.28);
 }
 
+/* FIX: Footer brand column spans only 1 col on narrow screens */
 @media (max-width: 640px) {
   .footer { padding: 3.5rem 0 2rem; }
   .footer-bar { flex-direction: column; text-align: center; gap: 0.5rem; }
   .footer-logo-text { font-size: 1.6rem; }
+  /* Prevent brand "span 2" from breaking layout */
+  .footer .container > div > div:first-child {
+    grid-column: span 1 !important;
+  }
 }
 
 /* ─── ANIMATIONS ─── */
@@ -526,4 +541,9 @@ main { flex: 1; }
 
   /* Full width buttons on mobile */
   .mobile-full { width: 100% !important; justify-content: center !important; }
+}
+
+/* FIX: Prevent any element from causing horizontal scroll */
+@media (max-width: 480px) {
+  section { overflow-x: hidden; }
 }

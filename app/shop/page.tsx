@@ -1,5 +1,8 @@
 // ================================================================
 // FILE LOCATION: C:\dev\healvana\app\shop\page.tsx
+// FIX: Bundle inner div had minWidth:260 causing overflow on
+//      small screens (~320px). Changed to minWidth:0 with
+//      flex:1 so it shrinks properly on mobile.
 // ================================================================
 
 import Link from 'next/link'
@@ -78,7 +81,6 @@ export default function ShopPage() {
           <p className="lead anim-up d2" style={{ maxWidth: '500px', margin: '0 auto 2rem' }}>
             Four premium digital guides. Instant download. Everything you need to heal, focus, and restore your body through nature.
           </p>
-          {/* Trust badges — no 30-day guarantee */}
           <div className="anim-up d3" style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             {['🔒 Secure Checkout', '⚡ Instant Download', '🌿 100% Natural', '🌍 Worldwide Access'].map(b => (
               <span key={b} style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--muted)' }}>{b}</span>
@@ -96,16 +98,17 @@ export default function ShopPage() {
             gap: '2rem', flexWrap: 'wrap',
             background: 'rgba(255,255,255,0.06)',
             borderRadius: 'var(--radius-xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 3rem)',
+            padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem)',
             border: '1px solid rgba(255,255,255,0.1)',
           }}>
-            <div style={{ flex: 1, minWidth: 260 }}>
+            {/* FIXED: was minWidth:260 which caused overflow on ~320px screens */}
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                 <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.65rem' }}>🔥 Best Value</span>
                 <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', textDecoration: 'line-through' }}>£113.96</span>
                 <span className="tag tag-dark" style={{ fontSize: '0.65rem' }}>Save £54</span>
               </div>
-              <h2 style={{ color: 'white', fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: '0.5rem' }}>Complete Healvana Bundle</h2>
+              <h2 style={{ color: 'white', fontSize: 'clamp(1.2rem, 3vw, 2rem)', marginBottom: '0.5rem' }}>Complete Healvana Bundle</h2>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.6 }}>
                 All 4 guides. Every system. One price. Instant access to everything Healvana offers.
               </p>
