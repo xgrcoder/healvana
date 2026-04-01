@@ -53,16 +53,16 @@ const PRODUCTS = [
 ]
 
 const SOLUTIONS = [
-  { icon: '💇', problem: 'Hair Loss & Thinning',      guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
-  { icon: '😴', problem: 'Chronic Fatigue',            guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
-  { icon: '🧠', problem: 'Brain Fog & Poor Focus',     guide: '7-Day Dopamine Reset',        guideId: 'dopamine-reset', color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
-  { icon: '🌙', problem: 'Poor Sleep & Insomnia',      guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
-  { icon: '🌸', problem: 'Skin Problems & Ageing',     guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
-  { icon: '⚡', problem: 'Stress & Anxiety',           guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
-  { icon: '🌿', problem: 'Digestive Issues & Bloating', guide: 'Natural Oils Bible',         guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
-  { icon: '🦴', problem: 'Joint Pain & Inflammation',  guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
-  { icon: '📱', problem: 'Phone Addiction',             guide: '7-Day Dopamine Reset',        guideId: 'dopamine-reset', color: { bg: '#f0ebfc', border: '#d4c8f0' } },
-  { icon: '🍇', problem: 'Immune Support',              guide: 'Sacred Fruits Bible',         guideId: 'natural-fruits', color: { bg: '#f5f0fc', border: '#d8c8f0' } },
+  { icon: '💇', problem: 'Hair Loss & Thinning',       guide: 'Natural Oils Bible',     guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)',  border: 'var(--border)'       } },
+  { icon: '😴', problem: 'Chronic Fatigue',             guide: 'Salts & Minerals Bible', guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '🧠', problem: 'Brain Fog & Poor Focus',      guide: '7-Day Dopamine Reset',   guideId: 'dopamine-reset', color: { bg: 'var(--sage-soft)',  border: 'var(--border)'       } },
+  { icon: '🌙', problem: 'Poor Sleep & Insomnia',       guide: 'Salts & Minerals Bible', guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '🌸', problem: 'Skin Problems & Ageing',      guide: 'Natural Oils Bible',     guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)',  border: 'var(--border)'       } },
+  { icon: '⚡', problem: 'Stress & Anxiety',            guide: 'Natural Oils Bible',     guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)',  border: 'var(--border)'       } },
+  { icon: '🌿', problem: 'Digestive Issues & Bloating', guide: 'Natural Oils Bible',     guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)',  border: 'var(--border)'       } },
+  { icon: '🦴', problem: 'Joint Pain & Inflammation',   guide: 'Salts & Minerals Bible', guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '📱', problem: 'Phone Addiction',              guide: '7-Day Dopamine Reset',   guideId: 'dopamine-reset', color: { bg: '#f0ebfc',           border: '#d4c8f0'              } },
+  { icon: '🍇', problem: 'Immune Support',               guide: 'Sacred Fruits Bible',    guideId: 'natural-fruits', color: { bg: '#f5f0fc',           border: '#d8c8f0'              } },
 ]
 
 export default function ShopPage() {
@@ -146,7 +146,6 @@ export default function ShopPage() {
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                 }}>
-                  {/* Visual */}
                   <div style={{
                     background: gradient, position: 'relative', overflow: 'hidden',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -159,7 +158,6 @@ export default function ShopPage() {
                       <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem' }}>one-time payment</span>
                     </div>
                   </div>
-                  {/* Info */}
                   <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
                     <span className="tag" style={{ ...tagStyle, fontSize: '0.62rem', marginBottom: '1rem', display: 'inline-flex', padding: '5px 14px', borderRadius: 'var(--radius-pill)', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{tag}</span>
                     <h3 style={{ marginBottom: '0.75rem', fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>{name}</h3>
@@ -184,7 +182,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* ── SOLUTIONS — which guide solves which problem ── */}
+      {/* ── SOLUTIONS ── */}
       <section className="section" style={{ background: 'var(--ivory)', position: 'relative', overflow: 'hidden', borderTop: '1px solid var(--border-warm)' }}>
         <div className="orb orb-green" style={{ width: 400, height: 400, top: -100, right: -80, opacity: 0.3 }} />
         <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -80, left: -80, opacity: 0.25 }} />
@@ -193,7 +191,7 @@ export default function ShopPage() {
             <div className="gold-rule" style={{ justifyContent: 'center' }}>
               <p className="eyebrow">Find Your Solution</p>
             </div>
-            <h2>Your Problem.<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Nature's Answer.</em></h2>
+            <h2>Your Problem.<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Nature&apos;s Answer.</em></h2>
             <p style={{ color: 'var(--muted)', maxWidth: '480px', margin: '1rem auto 0', fontSize: '0.92rem', lineHeight: 1.7 }}>
               Every common health problem has a natural root cause — and a natural solution. Find yours below.
             </p>
@@ -201,25 +199,20 @@ export default function ShopPage() {
 
           <div className="solutions-grid">
             {SOLUTIONS.map(({ icon, problem, guide, guideId, color }) => (
-              <div key={problem} style={{
+              <div key={problem} className="solution-item" style={{
                 background: color.bg,
                 border: `1px solid ${color.border}`,
                 borderRadius: 'var(--radius-lg)',
                 padding: '1.25rem 1.5rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 gap: '1rem', flexWrap: 'wrap',
-                transition: 'transform 0.2s, box-shadow 0.2s',
-              }}
-                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-md)' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = ''; (e.currentTarget as HTMLDivElement).style.boxShadow = '' }}
-              >
+              }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flex: 1, minWidth: 0 }}>
                   <span style={{
                     width: 44, height: 44, borderRadius: 'var(--radius-sm)',
                     background: 'white', border: `1px solid ${color.border}`,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '1.2rem', flexShrink: 0,
-                    boxShadow: 'var(--shadow-sm)',
+                    fontSize: '1.2rem', flexShrink: 0, boxShadow: 'var(--shadow-sm)',
                   }}>{icon}</span>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--forest)', marginBottom: 2 }}>{problem}</div>
