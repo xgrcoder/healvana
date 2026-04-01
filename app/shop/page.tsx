@@ -1,8 +1,5 @@
 // ================================================================
 // FILE LOCATION: C:\dev\healvana\app\shop\page.tsx
-// FIX: Bundle inner div had minWidth:260 causing overflow on
-//      small screens (~320px). Changed to minWidth:0 with
-//      flex:1 so it shrinks properly on mobile.
 // ================================================================
 
 import Link from 'next/link'
@@ -10,8 +7,7 @@ import BuyButton from '../components/BuyButton'
 
 const PRODUCTS = [
   {
-    id: 'dopamine-reset',
-    icon: '🧠',
+    id: 'dopamine-reset', icon: '🧠',
     tag: 'System 01 — Most Popular',
     tagStyle: { background: 'var(--sage-light)', color: 'var(--forest)' },
     name: '7-Day Dopamine Reset Protocol',
@@ -22,8 +18,7 @@ const PRODUCTS = [
     includes: ['7-day daily protocol', 'Focus rebuilding system', 'Habit tracking framework', 'Digital detox blueprint', 'Natural support protocols'],
   },
   {
-    id: 'natural-oils',
-    icon: '🌿',
+    id: 'natural-oils', icon: '🌿',
     tag: 'System 02 — Knowledge Guide',
     tagStyle: { background: 'var(--sage-light)', color: 'var(--forest)' },
     name: 'Natural Oils Bible',
@@ -34,8 +29,7 @@ const PRODUCTS = [
     includes: ['50+ oils documented', 'Application methods per oil', 'Health condition index', 'Blending & safety protocols', 'Instant digital download'],
   },
   {
-    id: 'natural-salts',
-    icon: '💎',
+    id: 'natural-salts', icon: '💎',
     tag: 'System 03 — Knowledge Guide',
     tagStyle: { background: 'var(--ocean-light)', color: 'var(--ocean)' },
     name: 'Natural Salts & Minerals Bible',
@@ -46,8 +40,7 @@ const PRODUCTS = [
     includes: ['20+ salts & minerals covered', 'Bath ritual protocols', 'Dietary switch guide', 'Mineral deficiency diagnosis', 'Sourcing & quality guide'],
   },
   {
-    id: 'natural-fruits',
-    icon: '🍇',
+    id: 'natural-fruits', icon: '🍇',
     tag: 'System 04 — New Release',
     tagStyle: { background: 'var(--gold-soft)', color: 'var(--earth)' },
     name: 'Sacred Fruits & Botanicals Bible',
@@ -57,6 +50,19 @@ const PRODUCTS = [
     href: '/shop',
     includes: ['20+ sacred fruits & botanicals', 'Ancient preparation methods', 'Bioavailability guide', 'Sourcing & quality protocols', 'Instant digital download'],
   },
+]
+
+const SOLUTIONS = [
+  { icon: '💇', problem: 'Hair Loss & Thinning',      guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
+  { icon: '😴', problem: 'Chronic Fatigue',            guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '🧠', problem: 'Brain Fog & Poor Focus',     guide: '7-Day Dopamine Reset',        guideId: 'dopamine-reset', color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
+  { icon: '🌙', problem: 'Poor Sleep & Insomnia',      guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '🌸', problem: 'Skin Problems & Ageing',     guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
+  { icon: '⚡', problem: 'Stress & Anxiety',           guide: 'Natural Oils Bible',          guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
+  { icon: '🌿', problem: 'Digestive Issues & Bloating', guide: 'Natural Oils Bible',         guideId: 'natural-oils',   color: { bg: 'var(--sage-soft)', border: 'var(--border)' } },
+  { icon: '🦴', problem: 'Joint Pain & Inflammation',  guide: 'Salts & Minerals Bible',      guideId: 'natural-salts',  color: { bg: 'var(--ocean-soft)', border: 'var(--border-ocean)' } },
+  { icon: '📱', problem: 'Phone Addiction',             guide: '7-Day Dopamine Reset',        guideId: 'dopamine-reset', color: { bg: '#f0ebfc', border: '#d4c8f0' } },
+  { icon: '🍇', problem: 'Immune Support',              guide: 'Sacred Fruits Bible',         guideId: 'natural-fruits', color: { bg: '#f5f0fc', border: '#d8c8f0' } },
 ]
 
 export default function ShopPage() {
@@ -89,43 +95,33 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* ── BUNDLE DEAL ── */}
+      {/* ── BUNDLE ── */}
       <section style={{ background: 'var(--forest)', padding: 'clamp(2rem, 4vw, 3rem) 0', position: 'relative', overflow: 'hidden' }}>
         <div className="orb orb-gold" style={{ width: 350, height: 350, top: -100, right: -80 }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            gap: '2rem', flexWrap: 'wrap',
-            background: 'rgba(255,255,255,0.06)',
-            borderRadius: 'var(--radius-xl)',
-            padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem)',
-            border: '1px solid rgba(255,255,255,0.1)',
-          }}>
-            {/* FIXED: was minWidth:260 which caused overflow on ~320px screens */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="bundle-card" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
+            <div className="bundle-card-left">
+              <div style={{ marginBottom: '0.75rem' }}>
                 <span className="tag" style={{ background: 'var(--gold)', color: 'white', fontSize: '0.65rem' }}>🔥 Best Value</span>
-                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem', textDecoration: 'line-through' }}>£113.96</span>
-                <span className="tag tag-dark" style={{ fontSize: '0.65rem' }}>Save £54</span>
+                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', textDecoration: 'line-through', marginLeft: '0.75rem' }}>£113.96</span>
+                <span className="tag tag-dark" style={{ fontSize: '0.65rem', marginLeft: '0.5rem' }}>Save £54</span>
               </div>
               <h2 style={{ color: 'white', fontSize: 'clamp(1.2rem, 3vw, 2rem)', marginBottom: '0.5rem' }}>Complete Healvana Bundle</h2>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                 All 4 guides. Every system. One price. Instant access to everything Healvana offers.
               </p>
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 {['🧠 Mind Reset', '🌿 Oils Guide', '💎 Salts Guide', '🍇 Sacred Fruits'].map(i => (
                   <span key={i} className="tag tag-dark" style={{ fontSize: '0.62rem' }}>{i}</span>
                 ))}
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'white', lineHeight: 1 }}>£59.99</span>
-              <BuyButton
-                productId="bundle-all"
-                label="Get All 4 Guides →"
-                className="btn btn-gold"
-                style={{ padding: '15px 32px', fontSize: '1rem', whiteSpace: 'nowrap' }}
-              />
+            <div className="bundle-card-right">
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', color: 'white', lineHeight: 1, display: 'block' }}>£59.99</span>
+                <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem' }}>one-time payment</span>
+              </div>
+              <BuyButton productId="bundle-all" label="Get All 4 Guides →" className="btn btn-gold" style={{ padding: '14px 28px', fontSize: '0.95rem', whiteSpace: 'nowrap' }} />
               <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.72rem' }}>🔒 Secure · Instant access</span>
             </div>
           </div>
@@ -184,6 +180,66 @@ export default function ShopPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOLUTIONS — which guide solves which problem ── */}
+      <section className="section" style={{ background: 'var(--ivory)', position: 'relative', overflow: 'hidden', borderTop: '1px solid var(--border-warm)' }}>
+        <div className="orb orb-green" style={{ width: 400, height: 400, top: -100, right: -80, opacity: 0.3 }} />
+        <div className="orb orb-blue"  style={{ width: 300, height: 300, bottom: -80, left: -80, opacity: 0.25 }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <div className="gold-rule" style={{ justifyContent: 'center' }}>
+              <p className="eyebrow">Find Your Solution</p>
+            </div>
+            <h2>Your Problem.<br /><em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>Nature's Answer.</em></h2>
+            <p style={{ color: 'var(--muted)', maxWidth: '480px', margin: '1rem auto 0', fontSize: '0.92rem', lineHeight: 1.7 }}>
+              Every common health problem has a natural root cause — and a natural solution. Find yours below.
+            </p>
+          </div>
+
+          <div className="solutions-grid">
+            {SOLUTIONS.map(({ icon, problem, guide, guideId, color }) => (
+              <div key={problem} style={{
+                background: color.bg,
+                border: `1px solid ${color.border}`,
+                borderRadius: 'var(--radius-lg)',
+                padding: '1.25rem 1.5rem',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                gap: '1rem', flexWrap: 'wrap',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }}
+                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-md)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = ''; (e.currentTarget as HTMLDivElement).style.boxShadow = '' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flex: 1, minWidth: 0 }}>
+                  <span style={{
+                    width: 44, height: 44, borderRadius: 'var(--radius-sm)',
+                    background: 'white', border: `1px solid ${color.border}`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '1.2rem', flexShrink: 0,
+                    boxShadow: 'var(--shadow-sm)',
+                  }}>{icon}</span>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--forest)', marginBottom: 2 }}>{problem}</div>
+                    <div style={{ fontSize: '0.72rem', color: 'var(--muted)', fontWeight: 600 }}>→ {guide}</div>
+                  </div>
+                </div>
+                <BuyButton
+                  productId={guideId}
+                  label="Get Guide →"
+                  className="btn btn-primary"
+                  style={{ padding: '9px 18px', fontSize: '0.78rem', flexShrink: 0 }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link href="/problems" className="btn btn-outline" style={{ padding: '13px 32px' }}>
+              See Full Problem Breakdowns →
+            </Link>
           </div>
         </div>
       </section>
