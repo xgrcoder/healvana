@@ -309,6 +309,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </footer>
 
         </div>
+        <script src="https://zempotis.com/widget.js" data-client="healvana" async></script>
       </body>
     </html>
   )
