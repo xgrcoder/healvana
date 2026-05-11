@@ -1,12 +1,5 @@
-// ================================================================
-// FILE LOCATION: C:\dev\healvana\app\api\checkout\route.ts
-// (Replace your existing checkout route with this)
-// ================================================================
-
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 const PRODUCTS: Record<string, { name: string; description: string; amount: number }> = {
   'dopamine-reset': {
@@ -37,6 +30,8 @@ const PRODUCTS: Record<string, { name: string; description: string; amount: numb
 }
 
 export async function POST(req: Request) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+
   try {
     const body = await req.json()
     const productId = body?.productId as string
@@ -62,7 +57,6 @@ export async function POST(req: Request) {
         quantity: 1,
       }],
       mode: 'payment',
-      // ← Goes to download page, not thanks page
       success_url: `${baseUrl}/download?product=${productId}`,
       cancel_url: `${baseUrl}/shop`,
       billing_address_collection: 'auto',
